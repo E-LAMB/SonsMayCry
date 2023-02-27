@@ -33081,7 +33081,7 @@ MonoBehaviour:
   movement_start_speed: 6
   increment_terror: -15
   increment_awareness: 7.5
-  increment_speed: 0.5
+  increment_speed: -0.5
   terror_radius_final_size: 0
   awareness_radius_final_size: 0
   movement_final_speed: 0
