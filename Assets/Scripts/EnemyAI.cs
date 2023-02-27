@@ -115,7 +115,7 @@ public class EnemyAI : MonoBehaviour
         if (Mind.lever_notification == true && has_spawned)
         {
             Mind.lever_notification = false;
-            KnowsLocation(5f);
+            KnowsLocation(5f + (Mind.levers_flipped * 2f));
         }
 
         RaycastHit hit;
@@ -135,7 +135,7 @@ public class EnemyAI : MonoBehaviour
 
         if (has_sight)
         {
-            KnowsLocation(3f);
+            KnowsLocation(2f + Mind.levers_flipped);
         }
 
         if (interest_time > -10f)

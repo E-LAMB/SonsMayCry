@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,19 @@ public class PlayerController : MonoBehaviour
 	public float recovery_time;
 	public bool is_recovering;
 
+    public Transform sprint_bar;
+
+    public float total_length;
+
+    public Vector3 length_vec;
+    
+    public bool should_show_bar;
+    public GameObject bar_object;
+
+    public Vector4 color_active;
+    public Vector4 color_inactive;
+    public RawImage bar_rend;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -54,6 +68,17 @@ public class PlayerController : MonoBehaviour
     {
         if (should_be_in_control)
         {
+
+            if (is_recovering)
+            {
+                bar_rend.color = color_inactive;
+            } else
+            {
+                bar_rend.color = color_active;
+            }
+
+            should_show_bar = false;
+
             //Camera Control
             if (false_standin)
             {
@@ -67,11 +92,13 @@ public class PlayerController : MonoBehaviour
                 my_camera.transform.localRotation = Quaternion.Euler(pitch, yaw, 0);  
             }
 
+            length_vec.x = total_length * (stamina / max_stamina);
+            sprint_bar.localScale = length_vec;
+
             if (Input.GetKeyDown(key_sprint) && !is_sprinting && able_to_sprint && !is_recovering)
             {
                 is_sprinting = true;
             }
-			
             if (Input.GetKeyUp(key_sprint) && is_sprinting)
             {
                 is_sprinting = false;
@@ -80,11 +107,13 @@ public class PlayerController : MonoBehaviour
             if (is_sprinting)
             {
 
+                should_show_bar = true;
+
                 speed = sprint_speed;
 
                 if (Input.GetAxisRaw("Vertical") != 0f || Input.GetAxisRaw("Vertical") != 0f)
                 {
-                    stamina -= Time.deltaTime * 15f;
+                    stamina -= Time.deltaTime * 7.5f;
                     time_since_ran = 0f;
                 }
 				
@@ -108,6 +137,11 @@ public class PlayerController : MonoBehaviour
 				is_recovering = false;
 			}
 
+            if (time_since_ran <= 3f)
+            {
+                should_show_bar = true;
+            }
+
             if (Input.GetKeyDown(key_crouch))
             {
                 is_crouching = !is_crouching;
@@ -130,7 +164,11 @@ public class PlayerController : MonoBehaviour
 			if (time_since_ran > recovery_time && stamina < max_stamina)
 			{
 				stamina += Time.deltaTime * 30f;
+
+                should_show_bar = true;
 			}
+
+            bar_object.SetActive(should_show_bar);
         }
     }
 
