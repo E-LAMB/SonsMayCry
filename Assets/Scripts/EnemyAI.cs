@@ -34,6 +34,22 @@ public class EnemyAI : MonoBehaviour
     public float nav_z_bound_min;
     public float nav_z_bound_max;
 
+    public float terror_radius_start_size;
+    public float awareness_radius_start_size;
+    public float movement_start_speed;
+
+    public float increment_terror;
+    public float increment_awareness;
+    public float increment_speed;
+	
+	public float terror_radius_final_size;
+    public float awareness_radius_final_size;
+    public float movement_final_speed;
+	
+	public AudioSource my_terror;
+	
+	public GameObject overhead_light;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +93,24 @@ public class EnemyAI : MonoBehaviour
         {
             SpawnsMommy();
         }
+		
+		terror_radius_final_size = terror_radius_start_size + (increment_terror * Mind.levers_flipped);
+		awareness_radius_final_size = awareness_radius_start_size + (increment_awareness * Mind.levers_flipped);
+		movement_final_speed = movement_start_speed - (increment_speed * Mind.levers_flipped);
+		
+		my_terror.maxDistance = terror_radius_final_size;
+		
+		if (Mind.levers_flipped == 4)
+		{
+			KnowsLocation(5f);
+			movement_final_speed += 1;
+			overhead_light.SetActive(true);
+		}
+		
+		if (has_spawned)
+		{
+			my_agent.speed = movement_final_speed;
+		}
 
         if (Mind.lever_notification == true && has_spawned)
         {
@@ -93,6 +127,11 @@ public class EnemyAI : MonoBehaviour
 
         has_sight = Physics.Raycast(self.position, player_direction, out hit, player_distance, wall_layer);
         has_sight = !has_sight;
+		
+		if (awareness_radius_final_size > player_distance)
+		{
+			KnowsLocation(0.1f);
+		}
 
         if (has_sight)
         {

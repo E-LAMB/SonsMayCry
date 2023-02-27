@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     public GameObject standing_body;
 
     public float crouch_anim_speed;
+	
+	public float recovery_time;
+	public bool is_recovering;
 
     private void Start()
     {
@@ -64,10 +67,11 @@ public class PlayerController : MonoBehaviour
                 my_camera.transform.localRotation = Quaternion.Euler(pitch, yaw, 0);  
             }
 
-            if (Input.GetKeyDown(key_sprint) && !is_sprinting && able_to_sprint)
+            if (Input.GetKeyDown(key_sprint) && !is_sprinting && able_to_sprint && !is_recovering)
             {
                 is_sprinting = true;
             }
+			
             if (Input.GetKeyUp(key_sprint) && is_sprinting)
             {
                 is_sprinting = false;
@@ -80,14 +84,29 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetAxisRaw("Vertical") != 0f || Input.GetAxisRaw("Vertical") != 0f)
                 {
-                    stamina -= Time.deltaTime * 10f;
+                    stamina -= Time.deltaTime * 15f;
                     time_since_ran = 0f;
                 }
+				
+				if (is_recovering)
+				{
+					is_sprinting = false;
+				}
 
             } else
             {
                 speed = walk_speed;
             }
+			
+			if (stamina <= 0f)
+			{
+				is_recovering = true;
+			}
+			
+			if (stamina >= max_stamina)
+			{
+				is_recovering = false;
+			}
 
             if (Input.GetKeyDown(key_crouch))
             {
@@ -107,7 +126,11 @@ public class PlayerController : MonoBehaviour
             }
 
             time_since_ran += Time.deltaTime;
- 
+			
+			if (time_since_ran > recovery_time && stamina < max_stamina)
+			{
+				stamina += Time.deltaTime * 30f;
+			}
         }
     }
 
