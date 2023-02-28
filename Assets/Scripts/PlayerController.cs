@@ -65,7 +65,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+        bar_object.SetActive(should_show_bar);
+        if (!should_be_in_control)
+        {
+            should_show_bar = false; 
+        }
         if (should_be_in_control)
         {
 
@@ -166,9 +171,7 @@ public class PlayerController : MonoBehaviour
 				stamina += Time.deltaTime * 30f;
 
                 should_show_bar = true;
-			}
-
-            bar_object.SetActive(should_show_bar);
+			}       
         }
     }
 
