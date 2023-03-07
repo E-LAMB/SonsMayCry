@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
     public Vector4 color_inactive;
     public RawImage bar_rend;
 
+    public float time_active;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -70,9 +72,11 @@ public class PlayerController : MonoBehaviour
         if (!should_be_in_control)
         {
             should_show_bar = false; 
+            time_active = 0f;
         }
         if (should_be_in_control)
         {
+            time_active += Time.deltaTime;
 
             if (is_recovering)
             {
@@ -111,6 +115,8 @@ public class PlayerController : MonoBehaviour
 
             if (is_sprinting)
             {
+
+                time_active = 5f;
 
                 should_show_bar = true;
 
@@ -152,7 +158,6 @@ public class PlayerController : MonoBehaviour
                 is_crouching = !is_crouching;
             }
 
-
             if (is_crouching)
             {
                 speed -= crouch_speed_penalty;
@@ -171,7 +176,12 @@ public class PlayerController : MonoBehaviour
 				stamina += Time.deltaTime * 30f;
 
                 should_show_bar = true;
-			}       
+			}      
+
+            if (3.2f > time_active)
+            {
+                should_show_bar = false;
+            } 
         }
     }
 
