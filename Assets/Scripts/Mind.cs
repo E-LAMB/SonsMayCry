@@ -15,5 +15,6 @@ public static class Mind
     public static int cans_collected = 0;
 
     public static bool lever_notification;
+    public static bool eye_notification;
 
 }

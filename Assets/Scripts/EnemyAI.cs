@@ -118,6 +118,12 @@ public class EnemyAI : MonoBehaviour
             KnowsLocation(5f + (Mind.levers_flipped * 2f));
         }
 
+        if (Mind.eye_notification == true && has_spawned)
+        {
+            Mind.eye_notification = false;
+            KnowsLocation(5f);
+        }
+
         RaycastHit hit;
 
         player_distance = Vector3.Distance(player.position, self.position);
