@@ -19,7 +19,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        levers_required = Random.Range(1,5);
     }
 
     // Update is called once per frame

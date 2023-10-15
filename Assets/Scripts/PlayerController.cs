@@ -60,8 +60,13 @@ public class PlayerController : MonoBehaviour
 
     public float time_active;
 
+    public GameObject[] mazes;
+
     private void Start()
     {
+        gameObject.transform.position = new Vector3(Random.Range(-19, 20) * 2.5f, gameObject.transform.position.y, Random.Range(1, 40) * 2.5f);
+        mazes[Random.Range(0, mazes.Length)].SetActive(true);
+
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();
     }
