@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
+    public GameObject canvas;
+
     private float yaw, pitch;
     public float sensitivity;
 
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();
+        canvas.SetActive(true);
     }
 
     private void Update()
