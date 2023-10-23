@@ -151,10 +151,7 @@ public class HousePlayer : MonoBehaviour
             }
         } else
         {
-                Vector2 axis = new Vector2(0f, 0f) * speed;
-                Vector3 forward = new Vector3(-my_camera.transform.right.z, 0, my_camera.transform.right.x);
-                Vector3 wishDirection = (forward * axis.x + my_camera.transform.right * axis.y + Vector3.up * rb.velocity.y);
-                rb.velocity = wishDirection;
+            rb.velocity = Vector3.zero;
         }
     }
 }

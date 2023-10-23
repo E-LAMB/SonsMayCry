@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PowerSelector : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class PowerSelector : MonoBehaviour
     public HousePlayer player;
     public HouseInteractor player_int;
 
+    public GameObject crosshair;
+    public GameObject interact_text;
+
     public int selected_slot;
 
     public int power_1;
     public int power_2;
 
     public Sprite[] all_sprites;
+    public GameObject[] all_outlines;
 
     public Image power_1_image;
     public Image power_2_image;
@@ -25,6 +30,37 @@ public class PowerSelector : MonoBehaviour
 
     public bool[] unlocked_abilities;
 
+    public string[] titles;
+    [TextArea(8,20)]
+    public string[] descriptions_a;
+    [TextArea(8,20)]
+    public string[] descriptions_b;
+
+    public TextMeshProUGUI title_comp;
+    public TextMeshProUGUI desc_comp;
+
+    public void SelectText()
+    {
+
+        if (selected_slot == 1) 
+        {
+            title_comp.text = titles[power_1];
+            desc_comp.text = descriptions_a[power_1];
+        }
+        if (selected_slot == 2) 
+        {
+            title_comp.text = titles[power_2];
+            desc_comp.text = descriptions_b[power_2];
+        }
+
+    }
+
+    public void SelectTextOverride()
+    {
+        title_comp.text = titles[0];
+        desc_comp.text = descriptions_a[0];
+    }
+
     public void OpenMenu()
     {
         bool new_state = true;
@@ -32,8 +68,13 @@ public class PowerSelector : MonoBehaviour
         Debug.Log("Log1");
 
         my_menu.SetActive(new_state);
-        player.enabled = !new_state;
+        player.should_be_in_control = !new_state;
         player_int.enabled = !new_state;
+        crosshair.SetActive(!new_state);
+        interact_text.SetActive(!new_state);
+
+        HideOutlines();
+        SelectTextOverride();
 
         if (new_state)
         {
@@ -52,8 +93,13 @@ public class PowerSelector : MonoBehaviour
         Debug.Log("Log2");
 
         my_menu.SetActive(new_state);
-        player.enabled = !new_state;
+        player.should_be_in_control = !new_state;
         player_int.enabled = !new_state;
+        crosshair.SetActive(!new_state);
+        interact_text.SetActive(!new_state);
+
+        HideOutlines();
+        SelectText();
 
         if (new_state)
         {
@@ -65,11 +111,28 @@ public class PowerSelector : MonoBehaviour
 
     }
 
+    public void HideOutlines()
+    {
+        all_outlines[0].SetActive(false);
+        all_outlines[1].SetActive(false);
+        all_outlines[2].SetActive(false);
+        all_outlines[3].SetActive(false);
+        all_outlines[4].SetActive(false);
+        all_outlines[5].SetActive(false);
+        all_outlines[6].SetActive(false);
+        all_outlines[7].SetActive(false);
+        all_outlines[8].SetActive(false);
+        if (selected_slot == 1) {all_outlines[power_1].SetActive(true);}
+        if (selected_slot == 2) {all_outlines[power_2].SetActive(true);}
+    }
+
     public void ChangeSelectedSlot(int new_slot)
     {
         selected_slot = new_slot;
         outline_PS1.SetActive(new_slot == 1);
         outline_PS2.SetActive(new_slot == 2);
+        HideOutlines();
+        SelectText();
     }
 
     public void PlaceIntoSlot(int to_place)
@@ -85,6 +148,8 @@ public class PowerSelector : MonoBehaviour
                 power_2 = to_place;
             }
         }
+        HideOutlines();
+        SelectText();
     }
 
     // Start is called before the first frame update
@@ -94,6 +159,7 @@ public class PowerSelector : MonoBehaviour
         selected_slot = 1;
         outline_PS1.SetActive(true);
         outline_PS2.SetActive(false);
+        HideOutlines();
     }
 
     // Update is called once per frame
