@@ -17,4 +17,7 @@ public static class Mind
     public static bool lever_notification;
     public static bool eye_notification;
 
+    public static bool focus_wire;
+    public static bool focus_threat;
+
 }

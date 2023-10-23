@@ -8,15 +8,4 @@ public class Interactible : MonoBehaviour
 
     public UnityEvent when_interacted;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
