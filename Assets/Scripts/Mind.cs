@@ -20,4 +20,8 @@ public static class Mind
     public static bool focus_wire;
     public static bool focus_threat;
 
+    public static int ability_one;
+    public static int ability_two;
+    public static int ability_item_taken;
+
 }

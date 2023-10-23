@@ -37,6 +37,9 @@ public class HouseInteractor : MonoBehaviour
                 {
                     on_interact.Invoke();
                 }
+            } else
+            {
+                my_text.text = "";
             }
         } else
         {
