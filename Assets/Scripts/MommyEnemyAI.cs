@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class MommyEnemyAI : MonoBehaviour
-{
+{ /*
 
     public NavMeshAgent my_agent;
 
@@ -168,4 +168,4 @@ public class MommyEnemyAI : MonoBehaviour
             my_agent.SetDestination(navigation_location);
         }
     }
-}
+*/ }

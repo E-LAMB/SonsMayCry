@@ -10266,7 +10266,7 @@ MonoBehaviour:
     Labyrinth</color>. Escaping <color=#FFF773>The Labyrinth</color> awards a bonus
     of 250 extra <color=#8BFFE8>Shards</color>."
   - "<color=#FFD1B3>\u201DSometimes keeping within the boundaries of repressed memories
-    can hold you bacl.\u201D</color>\n\nCauses a <color=#8BFFE8>Memory Fragment</color>
+    can hold you back.\u201D</color>\n\nCauses a <color=#8BFFE8>Memory Fragment</color>
     to spawn within <color=#FFF773>The Labyrinth</color> once the final <color=#FFF773>Lever</color>
     has been activated - Revealing it's location for 25 seconds by <color=#8BFFE8>Focus</color>.
     Collecting a <color=#8BFFE8>Memory Fragment</color> gives you 750 <color=#8BFFE8>Shards</color>."
@@ -10281,7 +10281,8 @@ MonoBehaviour:
     <color=#FFF773>The Exit</color> to remain closed for an extra 20 seconds after
     being fully powered. Escaping <color=#FFF773>The Labyrinth</color> awards you
     a bonus of 500 extra <color=#8BFFE8>Shards</color>."
-  - "<color=#FFD1B3>\u201DIt\u2019s good to make prisoners.\u201D</color>\n\nAfter
+  - "<color=#FFD1B3>\u201DYou are too familiar with the feeling of cold shivers running
+    down your spine, If you were only able to sense it coming - You could stop it.\u201D</color>\n\nAfter
     activating a <color=#FFF773>Lever</color>, The location of <color=#FF3C3F>The
     Evil</color> is revealed to you for 10 seconds by <color=#8BFFE8>Focus</color>."
   - "<color=#FFD1B3>\u201DRun! Run or she will kill you too!\u201D</color>\r\n\nIncreases

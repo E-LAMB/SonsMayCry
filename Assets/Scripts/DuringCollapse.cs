@@ -9,10 +9,13 @@ public class DuringCollapse : MonoBehaviour
     public Vector4 endgame;
 
     public GameObject sun;
+    // public GameObject top;
 
     void Start()
     {
         sun.SetActive(false);
+        // top.SetActive(true);
+        // Debug.Log(gameObject.name);
     }
 
     // Start is called before the first frame update

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class DaddyEnemyAI : MonoBehaviour
-{
+{ /*
     public NavMeshAgent my_agent;
 
     public Vector3 navigation_location;
@@ -157,4 +157,4 @@ public class DaddyEnemyAI : MonoBehaviour
             my_agent.SetDestination(navigation_location);
         }
     }
-}
+*/ }

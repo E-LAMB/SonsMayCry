@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     public float time_since_last_activation;
 
+    public GameObject overhead;
+
     public void LeverFlipped()
     {
         if (Mind.ability_two == 3)
@@ -85,6 +87,16 @@ public class PlayerController : MonoBehaviour
             is_recovering = false;
             time_since_ran = 2f;
             stamina = max_stamina;
+        }
+        Mind.levers_flipped = 0;
+        if (Mind.lever_a_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_b_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_c_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_d_flipped) {Mind.levers_flipped += 1;}
+
+        if (Mind.levers_flipped == 4)
+        {
+            overhead.SetActive(true);
         }
     }
 
@@ -105,6 +117,12 @@ public class PlayerController : MonoBehaviour
         canvas.SetActive(true);
 
         Mind.time_in_level = 0f;
+
+        Mind.levers_flipped = 0;
+        if (Mind.lever_a_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_b_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_c_flipped) {Mind.levers_flipped += 1;}
+        if (Mind.lever_d_flipped) {Mind.levers_flipped += 1;}
     }
 
     private void Update()
