@@ -16,17 +16,29 @@ public class Lever : MonoBehaviour
 
     public AnimationCurve rotating_curve;
 
+    public Interactible my_int;
+
+    public PlayerController player;
+
     public void FlippedLever()
     {
         if (flipped == false)
         {
+            Mind.shards_earnt += 35;
             flipped = true;
+            my_int.interaction_description = "";
             if (corresponding_letter == "a") {Mind.lever_a_flipped = true;}
             if (corresponding_letter == "b") {Mind.lever_b_flipped = true;}
             if (corresponding_letter == "c") {Mind.lever_c_flipped = true;}
             if (corresponding_letter == "d") {Mind.lever_d_flipped = true;}
             Mind.lever_notification = true;
+            player.LeverFlipped();
         }
+    }
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

@@ -16,9 +16,6 @@ public class PowerSelector : MonoBehaviour
 
     public int selected_slot;
 
-    public int power_1;
-    public int power_2;
-
     public Sprite[] all_sprites;
     public GameObject[] all_outlines;
 
@@ -44,13 +41,13 @@ public class PowerSelector : MonoBehaviour
 
         if (selected_slot == 1) 
         {
-            title_comp.text = titles[power_1];
-            desc_comp.text = descriptions_a[power_1];
+            title_comp.text = titles[Mind.ability_one];
+            desc_comp.text = descriptions_a[Mind.ability_one];
         }
         if (selected_slot == 2) 
         {
-            title_comp.text = titles[power_2];
-            desc_comp.text = descriptions_b[power_2];
+            title_comp.text = titles[Mind.ability_two];
+            desc_comp.text = descriptions_b[Mind.ability_two];
         }
 
     }
@@ -65,7 +62,7 @@ public class PowerSelector : MonoBehaviour
     {
         bool new_state = true;
 
-        Debug.Log("Log1");
+        //Debug.Log("Log1");
 
         my_menu.SetActive(new_state);
         player.should_be_in_control = !new_state;
@@ -90,7 +87,7 @@ public class PowerSelector : MonoBehaviour
     {
         bool new_state = false;
 
-        Debug.Log("Log2");
+        //Debug.Log("Log2");
 
         my_menu.SetActive(new_state);
         player.should_be_in_control = !new_state;
@@ -122,17 +119,32 @@ public class PowerSelector : MonoBehaviour
         all_outlines[6].SetActive(false);
         all_outlines[7].SetActive(false);
         all_outlines[8].SetActive(false);
-        if (selected_slot == 1) {all_outlines[power_1].SetActive(true);}
-        if (selected_slot == 2) {all_outlines[power_2].SetActive(true);}
+        if (selected_slot == 1) {all_outlines[Mind.ability_one].SetActive(true);}
+        if (selected_slot == 2) {all_outlines[Mind.ability_two].SetActive(true);}
     }
 
     public void ChangeSelectedSlot(int new_slot)
     {
-        selected_slot = new_slot;
-        outline_PS1.SetActive(new_slot == 1);
-        outline_PS2.SetActive(new_slot == 2);
-        HideOutlines();
-        SelectText();
+        if (selected_slot != new_slot)
+        {
+            selected_slot = new_slot;
+            outline_PS1.SetActive(new_slot == 1);
+            outline_PS2.SetActive(new_slot == 2);
+            HideOutlines();
+            SelectText();
+        } else
+        {
+            if (selected_slot == 1)
+            {
+                Mind.ability_one = 0;
+            } 
+            if (selected_slot == 2)
+            {
+                Mind.ability_two = 0;
+            }
+            HideOutlines();
+            SelectText();
+        }
     }
 
     public void PlaceIntoSlot(int to_place)
@@ -141,11 +153,11 @@ public class PowerSelector : MonoBehaviour
         {
             if (selected_slot == 1)
             {
-                power_1 = to_place;
+                Mind.ability_one = to_place;
             }
             if (selected_slot == 2)
             {
-                power_2 = to_place;
+                Mind.ability_two = to_place;
             }
         }
         HideOutlines();
@@ -165,7 +177,7 @@ public class PowerSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        power_1_image.sprite = all_sprites[power_1];
-        power_2_image.sprite = all_sprites[power_2];
+        power_1_image.sprite = all_sprites[Mind.ability_one];
+        power_2_image.sprite = all_sprites[Mind.ability_two];
     }
 }

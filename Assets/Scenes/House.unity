@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8256619db2ecbee49a1557c7c04b9a6a, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -500, y: -375}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18980847
 MonoBehaviour:
@@ -492,7 +492,7 @@ RectTransform:
   m_Children:
   - {fileID: 425512911}
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1105,7 +1105,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -375}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240232079
 MonoBehaviour:
@@ -4040,7 +4040,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -250, y: -375}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001038778
 MonoBehaviour:
@@ -4698,7 +4698,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251889831
 MonoBehaviour:
@@ -4931,7 +4931,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1500, y: -125}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360916563
 MonoBehaviour:
@@ -5197,7 +5197,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -750, y: -125}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411900139
 MonoBehaviour:
@@ -6959,7 +6959,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -250, y: -125}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792275565
 MonoBehaviour:
@@ -7098,7 +7098,7 @@ RectTransform:
   - {fileID: 1001038777}
   - {fileID: 240232078}
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8114,7 +8114,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -750, y: -375}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090244264
 MonoBehaviour:
@@ -8246,7 +8246,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -500, y: -125}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2115703856
 MonoBehaviour:
@@ -8550,6 +8550,7 @@ GameObject:
   - component: {fileID: 3570528646162549622}
   - component: {fileID: 360623299293835230}
   - component: {fileID: 360623299293835231}
+  - component: {fileID: 360623299293835232}
   m_Layer: 6
   m_Name: Interactible
   m_TagString: Untagged
@@ -8584,8 +8585,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   when_interacted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 360623299293835232}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: Switch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   interaction_description: < Enter the Labyrinth >
+--- !u!114 &360623299293835232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360623299293835229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813949b8804446d4693d865dbec6fdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &650746006813293138
 Transform:
   m_ObjectHideFlags: 0
@@ -9051,7 +9076,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9183,7 +9208,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9313,8 +9338,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9467,7 +9492,7 @@ RectTransform:
   - {fileID: 1729654676318971513}
   - {fileID: 1729654677435138386}
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9501,6 +9526,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1870269453}
+  - {fileID: 1729654676842953109}
+  - {fileID: 1729654676784396602}
   - {fileID: 1729654677897194489}
   - {fileID: 1729654676503199012}
   - {fileID: 1729654677587219896}
@@ -9513,10 +9541,7 @@ RectTransform:
   - {fileID: 1729654676688076042}
   - {fileID: 1729654676310515760}
   - {fileID: 1729654676381036499}
-  - {fileID: 1729654676842953109}
-  - {fileID: 1729654676784396602}
   - {fileID: 76186455}
-  - {fileID: 1870269453}
   m_Father: {fileID: 1729654677211482599}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9575,7 +9600,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9707,7 +9732,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9809,7 +9834,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 13
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9932,7 +9957,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 12
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10136,7 +10161,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10161,8 +10186,6 @@ MonoBehaviour:
   crosshair: {fileID: 1729654676881855420}
   interact_text: {fileID: 1729654676117865011}
   selected_slot: 0
-  power_1: 0
-  power_2: 0
   all_sprites:
   - {fileID: 21300000, guid: fd55420f0c4b28745bccaffb5ca81d88, type: 3}
   - {fileID: 21300000, guid: f2627a8d15411c24f94720a8973dcff0, type: 3}
@@ -10196,7 +10219,7 @@ MonoBehaviour:
   - '"Rest For The Wicked"'
   - '"Playmates"'
   - '"Shivers"'
-  - '"Endurance"'
+  - '"Keep Running"'
   - '"Electrician"'
   descriptions_a:
   - Select two modifiers to change things within <color=#FFF773>The Labyrinth</color>
@@ -10204,12 +10227,12 @@ MonoBehaviour:
   - When <color=#FF3C3F>The Evil</color> first arrives, <color=#FF3C3F>The Evil</color>
     is revealed to you for 20 seconds by <color=#8BFFE8>Focus</color>.
   - Causes a <color=#8BFFE8>Memory Fragment</color> to spawn within <color=#FFF773>The
-    Labyrinth</color>. Collecting a <color=#8BFFE8>Memory Fragment</color> gives
-    you 200 <color=#8BFFE8>Shards</color>.
-  - When you arrive in <color=#FFF773>The Labyrinth</color>, For the first 30 seconds
+    Labyrinth</color> after activating one <color=#FFF773>Lever</color>. Collecting
+    a <color=#8BFFE8>Memory Fragment</color> gives you 200 <color=#8BFFE8>Shards</color>.
+  - When you arrive in <color=#FFF773>The Labyrinth</color>, For the first 60 seconds
     you are unable to fully deplete your <color=#8BFFE8>Stamina</color>.
   - Prevents the appearance of <color=#FF3C3F>Eyes</color> before you have activated
-    three <color=#FFF773>Lever</color>s.
+    three <color=#FFF773>Levers</color>.
   - Causes a second Evil to spawn once activating the second <color=#FFF773>Lever</color>.
     Rewards an extra 50 <color=#8BFFE8>Shards</color> for each subsequent <color=#FFF773>Lever</color>
     you activate.
@@ -10218,7 +10241,7 @@ MonoBehaviour:
   - "Increases your <color=#8BFFE8>Maximum Stamina</color> by 30 points. <color=#8BFFE8>Stamina</color>
     is a 100 points by default.\r"
   - Reveals the <color=#FFF773>Electrical Wires</color> connecting each <color=#FFF773>Lever</color>
-    to <color=#FFF773>The Exit</color> for 20 seconds upon entering <color=#FFF773>The
+    to <color=#FFF773>The Exit</color> for 30 seconds upon entering <color=#FFF773>The
     Labyrinth</color> by <color=#8BFFE8>Focus</color>.
   descriptions_b:
   - Select two modifiers to change things within <color=#FFF773>The Labyrinth</color>
@@ -10232,9 +10255,9 @@ MonoBehaviour:
     a <color=#8BFFE8>Memory Fragment</color> gives you 200 <color=#8BFFE8>Shards</color>.
   - After activating a <color=#FFF773>Lever</color>, Your <color=#8BFFE8>Stamina</color>
     fully replenishes.
-  - Reduces the maximum amount of <color=#FF3C3F>Eyes</color> that enter <color=#FFF773>The
-    Labyrinth</color> by 1. Reveals <color=#FF3C3F>Eyes</color> when they enter <color=#FFF773>The
-    Labyrinth</color> for 10 seconds by <color=#8BFFE8>Focus</color>.
+  - Reduces the maximum amount of <color=#FF3C3F>Eyes</color> that can enter <color=#FFF773>The
+    Labyrinth</color> by 1. Reveals all <color=#FF3C3F>Eyes</color> when an <color=#FF3C3F>Eye</color>
+    enters <color=#FFF773>The Labyrinth</color> for 10 seconds by <color=#8BFFE8>Focus</color>.
   - "Causes <color=#FFF773>The Exit</color> to remain closed for an extra 30 seconds
     after being fully powered. Rewards an extra 150 <color=#8BFFE8>Shards</color>
     for escaping <color=#FFF773>The Labyrinth</color>.\r"
@@ -10469,7 +10492,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10601,7 +10624,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10748,7 +10771,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10880,7 +10903,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11114,7 +11137,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11171,7 +11194,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1729654676463762895}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -19,9 +19,16 @@ public static class Mind
 
     public static bool focus_wire;
     public static bool focus_threat;
+    public static bool focus_memory;
+    public static bool focus_eye;
 
     public static int ability_one;
     public static int ability_two;
     public static int ability_item_taken;
+
+    public static bool enemy_present;
+
+    public static float time_in_level;
+    public static int shards_earnt;
 
 }

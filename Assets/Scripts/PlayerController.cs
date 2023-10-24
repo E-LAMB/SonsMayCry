@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     float speed;
 
+    public TextMeshProUGUI shard_count;
+
     public bool false_standin;
 
     public GameObject standing_body;
@@ -64,6 +67,19 @@ public class PlayerController : MonoBehaviour
 
     public GameObject[] mazes;
 
+    public float time_since_first_lever;
+    public float time_since_enemy_spawn;
+
+    public void LeverFlipped()
+    {
+        if (Mind.ability_two == 3)
+        {
+            is_recovering = false;
+            time_since_ran = 2f;
+            stamina = max_stamina;
+        }
+    }
+
     private void Start()
     {
         gameObject.transform.position = new Vector3(Random.Range(-19, 20) * 2.5f, gameObject.transform.position.y, Random.Range(1, 40) * 2.5f);
@@ -72,10 +88,39 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();
         canvas.SetActive(true);
+
+        Mind.time_in_level = 0f;
     }
 
     private void Update()
     {   
+
+        if (Mind.ability_one == 3 && stamina < 20f && Mind.time_in_level < 60f)
+        {
+            stamina = 20f;
+        }
+
+        shard_count.text = Mind.shards_earnt.ToString();
+
+        if (Mind.levers_flipped > 0)
+        {
+            time_since_first_lever += Time.deltaTime;
+        }
+        if (Mind.enemy_present)
+        {
+            time_since_enemy_spawn += Time.deltaTime;
+        }
+
+        if (Mind.ability_one == 1 && time_since_enemy_spawn < 20f && Mind.enemy_present)
+        {
+            Mind.focus_threat = true;
+        } else
+        {
+            Mind.focus_threat = false;
+        }
+
+        Mind.time_in_level += Time.deltaTime;
+
         bar_object.SetActive(should_show_bar);
         if (!should_be_in_control)
         {
@@ -190,6 +235,9 @@ public class PlayerController : MonoBehaviour
             {
                 should_show_bar = false;
             } 
+
+            if (stamina < 0f) {stamina = 0f;}
+
         }
     }
 

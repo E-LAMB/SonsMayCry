@@ -55,6 +55,7 @@ public class DaddyEnemyAI : MonoBehaviour
         has_spawned = true;
         should_move = true;
         KnowsLocation(5f);
+        Mind.enemy_present = true;
     }
 
     void FindNewNavigation()
@@ -82,6 +83,11 @@ public class DaddyEnemyAI : MonoBehaviour
         if (Mind.lever_d_flipped) {Mind.levers_flipped += 1;}
 
         if (!has_spawned && Mind.levers_flipped > 0)
+        {
+            SpawnsDaddy();
+        }
+
+        if (!has_spawned && Mind.time_in_level > 15f && Mind.ability_two == 1)
         {
             SpawnsDaddy();
         }

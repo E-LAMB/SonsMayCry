@@ -7,5 +7,6 @@ public class Interactible : MonoBehaviour
 {
 
     public UnityEvent when_interacted;
+    public string interaction_description;
 
 }

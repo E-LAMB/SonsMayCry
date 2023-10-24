@@ -161,6 +161,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  interaction_description: (Activate Lever)
 --- !u!114 &8938118635812635457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  my_int: {fileID: 8938118635812635458}
 --- !u!1 &8938118635838210678
 GameObject:
   m_ObjectHideFlags: 0

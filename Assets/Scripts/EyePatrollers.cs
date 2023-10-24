@@ -32,10 +32,8 @@ public class EyePatrollers : MonoBehaviour
 
     void PathFind()
     {
-        new_target.y = self_trans.position.y;
-        new_target.x = Random.Range(-155,20);
-        new_target.z = Random.Range(-20,100);
-        time_till_path_find = 4f;
+        new_target = new Vector3(Random.Range(-19, 20) * 2.5f, self_trans.position.y, Random.Range(1, 40) * 2.5f);
+        time_till_path_find = 5f;
     }
 
     // Update is called once per frame
@@ -66,7 +64,7 @@ public class EyePatrollers : MonoBehaviour
         } else
         {
             rotator.localRotation = not_shake;
-            my_light.intensity = 5f;
+            my_light.intensity = 10f;
         }
         
         distance = Vector3.Distance(self_trans.position, new_target);
@@ -83,7 +81,7 @@ public class EyePatrollers : MonoBehaviour
 
         time_since_spot -= Time.deltaTime;
 
-        self_trans.position = Vector3.MoveTowards(self_trans.position, new_target, 5 * Time.deltaTime);
+        self_trans.position = Vector3.MoveTowards(self_trans.position, new_target, 2f * Time.deltaTime);
 
     }
 }

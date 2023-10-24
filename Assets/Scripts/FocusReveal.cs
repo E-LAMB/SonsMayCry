@@ -6,7 +6,12 @@ public class FocusReveal : MonoBehaviour
 {
 
     public string focus_type;
-    public Renderer my_renderer;
+    Renderer my_renderer;
+
+    void Start()
+    {
+        my_renderer = gameObject.GetComponent<Renderer>();
+    }
 
     void Update()
     {
@@ -17,6 +22,14 @@ public class FocusReveal : MonoBehaviour
         if (focus_type == "threat")
         {
             my_renderer.enabled = Mind.focus_threat;
+        }
+        if (focus_type == "eye")
+        {
+            my_renderer.enabled = Mind.focus_eye;
+        }
+        if (focus_type == "memory")
+        {
+            my_renderer.enabled = Mind.focus_memory;
         }
     }
 

@@ -38,7 +38,12 @@ public class Reset : MonoBehaviour
         Mind.lever_notification = false;
         Mind.eye_notification = false;
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        Mind.enemy_present = false;
+
+        Debug.Log("GOT CAUGHT!!");
+        Debug.Break();
+
+        // UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
 }

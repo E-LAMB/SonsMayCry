@@ -12,6 +12,7 @@ public class SodaCan : MonoBehaviour
 
     public void InteractedWith()
     {
+        Mind.shards_earnt += 20;
         Mind.cans_collected += 1;
         Destroy(gameObject);
     }
