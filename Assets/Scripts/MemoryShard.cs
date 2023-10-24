@@ -19,7 +19,7 @@ public class MemoryShard : MonoBehaviour
 
     public void CollectShard()
     {
-        Mind.shards_earnt += 200;
+        Mind.shards_earnt_memory += 750;
         Destroy(gameObject);
     }
 

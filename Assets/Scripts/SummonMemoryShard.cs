@@ -34,7 +34,7 @@ public class SummonMemoryShard : MonoBehaviour
         if (!is_ability_a && Mind.levers_flipped > 3 && reveal_time == 0f)
         {
             to_summon.SetActive(true);
-            reveal_time = 20f;
+            reveal_time = 25f;
             Mind.focus_memory = true;
         }
 

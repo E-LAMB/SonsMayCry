@@ -24,8 +24,9 @@ public class Lever : MonoBehaviour
     {
         if (flipped == false)
         {
-            Mind.shards_earnt += 35;
+            Mind.shards_earnt_lever += (Mind.levers_flipped * 200) + 200;
             flipped = true;
+            player.time_since_last_activation = 0f;
             my_int.interaction_description = "";
             if (corresponding_letter == "a") {Mind.lever_a_flipped = true;}
             if (corresponding_letter == "b") {Mind.lever_b_flipped = true;}

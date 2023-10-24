@@ -35,7 +35,7 @@ public class NewEyeEnemy : MonoBehaviour
     {
         final_position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, 7f, (Random.Range(1, 21) * 5f)-2.5f);
         currently_moving = 1;
-        time_until_move = 30f;
+        time_until_move = Random.Range(15f, 30f);
         current_charge = 20f;
         in_place = false;
     }
@@ -50,7 +50,7 @@ public class NewEyeEnemy : MonoBehaviour
             in_place = false;
             FindNewPlace();
             time_until_move = 0f;
-            Mind.eye_notification = true;
+            Mind.eye_notification = 9f;
         }    
 
         size = 1f - ((my_trans.position.y - 7f) / 50f);

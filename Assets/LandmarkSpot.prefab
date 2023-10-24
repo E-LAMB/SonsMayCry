@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3428210350190827255}
   - component: {fileID: 7558875341197898000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LandmarkSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9338,8 +9338,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10224,51 +10224,74 @@ MonoBehaviour:
   descriptions_a:
   - Select two modifiers to change things within <color=#FFF773>The Labyrinth</color>
     to give yourself an advantage, Or make things more challenging for more rewards.
-  - When <color=#FF3C3F>The Evil</color> first arrives, <color=#FF3C3F>The Evil</color>
-    is revealed to you for 20 seconds by <color=#8BFFE8>Focus</color>.
-  - Causes a <color=#8BFFE8>Memory Fragment</color> to spawn within <color=#FFF773>The
-    Labyrinth</color> after activating one <color=#FFF773>Lever</color>. Collecting
-    a <color=#8BFFE8>Memory Fragment</color> gives you 200 <color=#8BFFE8>Shards</color>.
-  - When you arrive in <color=#FFF773>The Labyrinth</color>, For the first 60 seconds
-    you are unable to fully deplete your <color=#8BFFE8>Stamina</color>.
-  - Prevents the appearance of <color=#FF3C3F>Eyes</color> before you have activated
-    three <color=#FFF773>Levers</color>.
-  - Causes a second Evil to spawn once activating the second <color=#FFF773>Lever</color>.
-    Rewards an extra 50 <color=#8BFFE8>Shards</color> for each subsequent <color=#FFF773>Lever</color>
-    you activate.
-  - After activating a <color=#FFF773>Lever</color>, The location of <color=#FF3C3F>The
-    Evil</color> is revealed to you for 10 seconds by <color=#8BFFE8>Focus</color>.
-  - "Increases your <color=#8BFFE8>Maximum Stamina</color> by 30 points. <color=#8BFFE8>Stamina</color>
+  - "<color=#FFD1B3>\u201DYou know now that evil will follow you wherever you go.
+    For your family, It runs in your blood.\u201D</color>\n\nWhen <color=#FF3C3F>The
+    Evil</color> first arrives, <color=#FF3C3F>The Evil</color> is revealed to you
+    for 20 seconds by <color=#8BFFE8>Focus</color>. When activating the final <color=#FFF773>Lever</color>,
+    The <color=#FF3C3F>The Evil</color> is revealed to you for 10 seconds by <color=#8BFFE8>Focus</color>."
+  - "<color=#FFD1B3>\u201DSometimes pushing past the boundaries of repressed memories
+    makes way for a new beginning. They just need to be found by your hands.\u201D</color>\n\nCauses
+    a <color=#8BFFE8>Memory Fragment</color> to spawn within <color=#FFF773>The Labyrinth</color>
+    after activating one <color=#FFF773>Lever</color>. Collecting a <color=#8BFFE8>Memory
+    Fragment</color> gives you 750 <color=#8BFFE8>Shards</color>."
+  - "<color=#FFD1B3>\u201DMake haste, Like your mother did to your father. Do it
+    quickly, And don\u2019t look back.\u201D</color>\n\nWhen you arrive in <color=#FFF773>The
+    Labyrinth</color>, For the first 60 seconds you are unable to fully deplete your
+    <color=#8BFFE8>Stamina</color>."
+  - "<color=#FFD1B3>\u201DSleep little children, And stay asleep until it\u2019s
+    already too late.\u201D</color>\n\nPrevents the appearance of <color=#FF3C3F>Eyes</color>
+    before you have activated two <color=#FFF773>Levers</color>."
+  - "<color=#FFD1B3>\u201DIt\u2019s good to make friends.\u201D</color>\n\nCauses
+    a second <color=#FF3C3F>Evil</color> to spawn once activating three <color=#FFF773>Levers</color>. 
+    Escaping <color=#FFF773>The Labyrinth</color> awards you a bonus of 650 extra
+    <color=#8BFFE8>Shards</color>."
+  - "<color=#FFD1B3>\u201DYou are too familiar with the feeling of cold shivers running
+    down your spine, And too comfortable with the knowledge of what others have done.\u201D</color>\n\nAfter
+    activating a <color=#FFF773>Lever</color>, The location of <color=#FF3C3F>The
+    Evil</color> is revealed to you for 5 seconds by <color=#8BFFE8>Focus</color>."
+  - "<color=#FFD1B3>\u201DRun! You can catch your breath later!\u201D</color>\n\nIncreases
+    your <color=#8BFFE8>Maximum Stamina</color> by 30 points. <color=#8BFFE8>Stamina</color>
     is a 100 points by default.\r"
-  - Reveals the <color=#FFF773>Electrical Wires</color> connecting each <color=#FFF773>Lever</color>
-    to <color=#FFF773>The Exit</color> for 30 seconds upon entering <color=#FFF773>The
-    Labyrinth</color> by <color=#8BFFE8>Focus</color>.
+  - "<color=#FFD1B3>\u201DYou know things. Now to act upon that knowledge for the
+    safety of your future.\u201D</color>\n\nReveals the <color=#FFF773>Electrical
+    Wires</color> connecting each <color=#FFF773>Lever</color> to <color=#FFF773>The
+    Exit</color> for 45 seconds upon entering <color=#FFF773>The Labyrinth</color>
+    by <color=#8BFFE8>Focus</color>."
   descriptions_b:
   - Select two modifiers to change things within <color=#FFF773>The Labyrinth</color>
     to give yourself an advantage, Or make things more challenging for more rewards.
-  - Causes <color=#FF3C3F>The Evil</color> to arrive after 15 seconds of you arriving
-    in <color=#FFF773>The Labyrinth</color>. Escaping <color=#FFF773>The Labyrinth</color>
-    awards a bonus of 250 extra <color=#8BFFE8>Shards</color>.
-  - Causes a <color=#8BFFE8>Memory Fragment</color> to spawn within <color=#FFF773>The
-    Labyrinth</color> once the final <color=#FFF773>Lever</color> has been activated
-    - Revealing it's location for 15 seconds by <color=#8BFFE8>Focus</color>. Collecting
-    a <color=#8BFFE8>Memory Fragment</color> gives you 200 <color=#8BFFE8>Shards</color>.
-  - After activating a <color=#FFF773>Lever</color>, Your <color=#8BFFE8>Stamina</color>
-    fully replenishes.
-  - Reduces the maximum amount of <color=#FF3C3F>Eyes</color> that can enter <color=#FFF773>The
-    Labyrinth</color> by 1. Reveals all <color=#FF3C3F>Eyes</color> when an <color=#FF3C3F>Eye</color>
-    enters <color=#FFF773>The Labyrinth</color> for 10 seconds by <color=#8BFFE8>Focus</color>.
-  - "Causes <color=#FFF773>The Exit</color> to remain closed for an extra 30 seconds
-    after being fully powered. Rewards an extra 150 <color=#8BFFE8>Shards</color>
-    for escaping <color=#FFF773>The Labyrinth</color>.\r"
-  - Decreases the radius at which you can hear <color=#FF3C3F>The Evil</color>. Escaping
-    <color=#FFF773>The Labyrinth</color> awards you a bonus of 100 extra <color=#8BFFE8>Shards</color>.
-  - "Increases your <color=#8BFFE8>Maximum Stamina</color> by 10 points each time
-    you activate a <color=#FFF773>Lever</color>. Upon activating the final <color=#FFF773>Lever</color>,
+  - "<color=#FFD1B3>\u201DYou know now that evil will follow you wherever you go.
+    It\u2019s never more than a few steps behind you.\u201D</color>\n\nCauses <color=#FF3C3F>The
+    Evil</color> to arrive after 15 seconds of you arriving in <color=#FFF773>The
+    Labyrinth</color>. Escaping <color=#FFF773>The Labyrinth</color> awards a bonus
+    of 250 extra <color=#8BFFE8>Shards</color>."
+  - "<color=#FFD1B3>\u201DSometimes keeping within the boundaries of repressed memories
+    can hold you bacl.\u201D</color>\n\nCauses a <color=#8BFFE8>Memory Fragment</color>
+    to spawn within <color=#FFF773>The Labyrinth</color> once the final <color=#FFF773>Lever</color>
+    has been activated - Revealing it's location for 25 seconds by <color=#8BFFE8>Focus</color>.
+    Collecting a <color=#8BFFE8>Memory Fragment</color> gives you 750 <color=#8BFFE8>Shards</color>."
+  - "<color=#FFD1B3>\u201DMake haste, Like your mother did to your father. Do it
+    quickly, Then do it faster the next time.\u201D</color>\n\nAfter activating a
+    <color=#FFF773>Lever</color>, Your <color=#8BFFE8>Stamina</color> fully replenishes."
+  - "<color=#FFD1B3>\u201DSleep little children, He won\u2019t be here when you awake.\u201D</color>\n\nReduces
+    the maximum amount of <color=#FF3C3F>Eyes</color> that can enter <color=#FFF773>The
+    Labyrinth</color> by 3. Reveals all <color=#FF3C3F>Eyes</color> when an <color=#FF3C3F>Eye</color>
+    enters <color=#FFF773>The Labyrinth</color> for 10 seconds by <color=#8BFFE8>Focus</color>."
+  - "<color=#FFD1B3>\u201DIt\u2019s good to make prisoners.\u201D</color>\n\nCauses
+    <color=#FFF773>The Exit</color> to remain closed for an extra 20 seconds after
+    being fully powered. Escaping <color=#FFF773>The Labyrinth</color> awards you
+    a bonus of 500 extra <color=#8BFFE8>Shards</color>."
+  - "<color=#FFD1B3>\u201DIt\u2019s good to make prisoners.\u201D</color>\n\nAfter
+    activating a <color=#FFF773>Lever</color>, The location of <color=#FF3C3F>The
+    Evil</color> is revealed to you for 10 seconds by <color=#8BFFE8>Focus</color>."
+  - "<color=#FFD1B3>\u201DRun! Run or she will kill you too!\u201D</color>\r\n\nIncreases
+    your <color=#8BFFE8>Maximum Stamina</color> by 10 points each time you activate
+    a <color=#FFF773>Lever</color>. Upon activating the final <color=#FFF773>Lever</color>,
     Gain an extra 5 points. <color=#8BFFE8>Stamina</color> is a 100 points by default.\r"
-  - "Reveals the <color=#FFF773>Electrical Wires</color> connecting each <color=#FFF773>Lever</color>
-    to <color=#FFF773>The Exit</color> for 5 seconds upon activating a <color=#FFF773>Lever</color>
-    by <color=#8BFFE8>Focus</color>.\r"
+  - "<color=#FFD1B3>\u201DYou know things. Take stock, Evaluate, And make the right
+    choice.\u201D</color>\r\n\nReveals the <color=#FFF773>Electrical Wires</color>
+    connecting each <color=#FFF773>Lever</color> to <color=#FFF773>The Exit</color>
+    for 10 seconds upon activating a <color=#FFF773>Lever</color> by <color=#8BFFE8>Focus</color>.\r"
   title_comp: {fileID: 1729654677435138387}
   desc_comp: {fileID: 1729654676318971510}
 --- !u!1 &1729654677211482598

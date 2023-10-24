@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject canvas;
 
-    private float yaw, pitch;
+    public float yaw, pitch;
     public float sensitivity;
 
     public float walk_speed;
@@ -68,7 +68,15 @@ public class PlayerController : MonoBehaviour
     public GameObject[] mazes;
 
     public float time_since_first_lever;
+    public float time_since_last_lever;
     public float time_since_enemy_spawn;
+
+    public float timer_sec;
+    public int timer_min_int;
+    public int timer_sec_int;
+    public TextMeshProUGUI timer_text;
+
+    public float time_since_last_activation;
 
     public void LeverFlipped()
     {
@@ -82,7 +90,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.position = new Vector3(Random.Range(-19, 20) * 2.5f, gameObject.transform.position.y, Random.Range(1, 40) * 2.5f);
+        for (int i = 0; i < mazes.Length; i++)
+        {
+            mazes[i].SetActive(false);
+        }
+
+        gameObject.transform.position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, gameObject.transform.position.y, (Random.Range(1, 21) * 5f)-2.5f);
+        gameObject.transform.eulerAngles = new Vector3 (0f, Random.Range(0, 4) * 90f, 0f);
+
         mazes[Random.Range(0, mazes.Length)].SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -95,16 +110,44 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {   
 
+        time_since_last_activation += Time.deltaTime;
+
+        timer_sec += Time.deltaTime;
+        if (timer_sec > 1f)
+        {
+            timer_sec -= 1f;
+            timer_sec_int += 1;
+            if (timer_sec_int > 59)
+            {
+                timer_sec_int -= 60;
+                timer_min_int += 1;
+            }
+            if (timer_sec_int > 9)
+            {
+                timer_text.text = timer_min_int.ToString() + ":" + timer_sec_int.ToString();
+            } else
+            {
+                timer_text.text = timer_min_int.ToString() + ":0" + timer_sec_int.ToString();
+            }
+        }
+
         if (Mind.ability_one == 3 && stamina < 20f && Mind.time_in_level < 60f)
         {
             stamina = 20f;
         }
 
-        shard_count.text = Mind.shards_earnt.ToString();
+        shard_count.text = (Mind.shards_earnt_escape + 
+        Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
+        Mind.shards_earnt_memory + Mind.shards_earnt_soda
+        + Mind.shards_earnt_unlocking).ToString();
 
         if (Mind.levers_flipped > 0)
         {
             time_since_first_lever += Time.deltaTime;
+        }
+        if (Mind.levers_flipped > 3)
+        {
+            time_since_last_lever += Time.deltaTime;
         }
         if (Mind.enemy_present)
         {
@@ -114,10 +157,20 @@ public class PlayerController : MonoBehaviour
         if (Mind.ability_one == 1 && time_since_enemy_spawn < 20f && Mind.enemy_present)
         {
             Mind.focus_threat = true;
+        } else if (Mind.ability_one == 1 && time_since_last_lever < 10f && Mind.levers_flipped > 3)
+        {
+            Mind.focus_threat = true;
+
+        } else if (Mind.ability_one == 6 && time_since_first_lever > 0f && time_since_last_activation < 5f)
+        {
+            Mind.focus_threat = true;
+
         } else
         {
             Mind.focus_threat = false;
         }
+
+        //Mind.focus_threat = true;
 
         Mind.time_in_level += Time.deltaTime;
 
@@ -180,26 +233,26 @@ public class PlayerController : MonoBehaviour
                     stamina -= Time.deltaTime * 7.5f;
                     time_since_ran = 0f;
                 }
-				
-				if (is_recovering)
-				{
-					is_sprinting = false;
-				}
+                
+                if (is_recovering)
+                {
+                    is_sprinting = false;
+                }
 
             } else
             {
                 speed = walk_speed;
             }
-			
-			if (stamina <= 0f)
-			{
-				is_recovering = true;
-			}
-			
-			if (stamina >= max_stamina)
-			{
-				is_recovering = false;
-			}
+            
+            if (stamina <= 0f)
+            {
+                is_recovering = true;
+            }
+            
+            if (stamina >= max_stamina)
+            {
+                is_recovering = false;
+            }
 
             if (time_since_ran <= 3f)
             {
@@ -223,13 +276,15 @@ public class PlayerController : MonoBehaviour
             }
 
             time_since_ran += Time.deltaTime;
-			
-			if (time_since_ran > recovery_time && stamina < max_stamina)
-			{
-				stamina += Time.deltaTime * 30f;
+            
+            if (time_since_ran > recovery_time && stamina < max_stamina)
+            {
+                stamina += Time.deltaTime * 25f;
+
+                stamina += Time.deltaTime * Mind.cans_collected * 10f;
 
                 should_show_bar = true;
-			}      
+            }      
 
             if (3.2f > time_active)
             {
@@ -256,6 +311,9 @@ public class PlayerController : MonoBehaviour
                 Vector3 wishDirection = (forward * axis.x + my_camera.transform.right * axis.y + Vector3.up * rb.velocity.y);
                 rb.velocity = wishDirection;
             }
+        } else
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 }

@@ -43,7 +43,7 @@ public class EyePatrollers : MonoBehaviour
         if (time_since_spot < 0f && Physics.CheckSphere(detector.position, range, player_layer))
         {
             time_since_spot = 20f;
-            Mind.eye_notification = true;
+            Mind.eye_notification = 9f;
         }    
 
         if (time_since_spot > 0f)

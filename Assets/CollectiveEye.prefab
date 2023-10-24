@@ -223,7 +223,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 10
+  m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 1
@@ -590,4 +590,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a82aeaa1b89e3a48a24b7cfcd7b9a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus_type: threat
+  focus_type: eye

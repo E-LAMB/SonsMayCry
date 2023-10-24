@@ -28,9 +28,9 @@ public class PowerSelector : MonoBehaviour
     public bool[] unlocked_abilities;
 
     public string[] titles;
-    [TextArea(8,20)]
+    [TextArea(10,40)]
     public string[] descriptions_a;
-    [TextArea(8,20)]
+    [TextArea(10,40)]
     public string[] descriptions_b;
 
     public TextMeshProUGUI title_comp;
