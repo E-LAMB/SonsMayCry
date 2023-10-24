@@ -43,7 +43,7 @@ public class Reset : MonoBehaviour
         Debug.Log("GOT CAUGHT!!");
         Debug.Break();
 
-        // UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
 }

@@ -19,7 +19,7 @@ public class Reloading : MonoBehaviour
         countdown += Time.deltaTime;
         if (countdown > 10f)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
     }
 }
