@@ -25,8 +25,6 @@ public class PowerSelector : MonoBehaviour
     public GameObject outline_PS1;
     public GameObject outline_PS2;
 
-    public bool[] unlocked_abilities;
-
     public string[] titles;
     [TextArea(10,40)]
     public string[] descriptions_a;
@@ -35,6 +33,7 @@ public class PowerSelector : MonoBehaviour
 
     public TextMeshProUGUI title_comp;
     public TextMeshProUGUI desc_comp;
+    public TextMeshProUGUI shard_comp;
 
     public void SelectText()
     {
@@ -149,7 +148,7 @@ public class PowerSelector : MonoBehaviour
 
     public void PlaceIntoSlot(int to_place)
     {
-        if (unlocked_abilities[to_place])
+        if (Mind.abilities_unlocked[to_place])
         {
             if (selected_slot == 1)
             {
@@ -159,7 +158,24 @@ public class PowerSelector : MonoBehaviour
             {
                 Mind.ability_two = to_place;
             }
+        } else
+        {
+            if (Mind.total_shards > 2499)
+            {
+                Mind.total_shards -= 2500;
+                Mind.abilities_unlocked[to_place] = true;
+
+                if (selected_slot == 1)
+                {
+                    Mind.ability_one = to_place;
+                }
+                if (selected_slot == 2)
+                {
+                    Mind.ability_two = to_place;
+                }
+            }
         }
+        
         HideOutlines();
         SelectText();
     }
@@ -167,6 +183,24 @@ public class PowerSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (Mind.abilities_unlocked[0] == false)
+        {
+            Mind.abilities_unlocked[0] = true;
+
+            Mind.abilities_unlocked[1] = false;
+            Mind.abilities_unlocked[2] = false;
+            Mind.abilities_unlocked[3] = false;
+            Mind.abilities_unlocked[4] = false;
+            Mind.abilities_unlocked[5] = false;
+            Mind.abilities_unlocked[6] = false;
+            Mind.abilities_unlocked[7] = false;
+            Mind.abilities_unlocked[8] = false;
+
+            Mind.total_shards = 2500;
+
+        }
+
         CloseMenu();
         selected_slot = 1;
         outline_PS1.SetActive(true);
@@ -177,6 +211,13 @@ public class PowerSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.P))
+        {
+            Mind.total_shards += 100;
+        }
+
+        shard_comp.text = "Total Shards: " + Mind.total_shards.ToString();
+
         power_1_image.sprite = all_sprites[Mind.ability_one];
         power_2_image.sprite = all_sprites[Mind.ability_two];
     }

@@ -17,10 +17,12 @@ public static class Mind
     public static bool lever_notification;
     public static float eye_notification;
 
-    public static bool focus_wire = true;
+    public static bool focus_wire;
     public static bool focus_threat;
     public static bool focus_memory;
     public static bool focus_eye;
+
+    public static bool[] abilities_unlocked = new bool[9]; //(false, false, false, false, false, false, false, false, false);
 
     public static int ability_one;
     public static int ability_two;

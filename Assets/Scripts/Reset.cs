@@ -56,11 +56,11 @@ public class Reset : MonoBehaviour
         Mind.shards_earnt_unlocking = 0;
 
         Debug.Log("GOT CAUGHT!!");
-        Debug.Break();
+        // Debug.Break();
 
         got = true;
 
-        // UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
 }

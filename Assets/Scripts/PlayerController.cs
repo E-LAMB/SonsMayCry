@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
             Mind.focus_threat = false;
         }
 
-        //Mind.focus_threat = true;
+        // Mind.focus_threat = true;
 
         Mind.time_in_level += Time.deltaTime;
 

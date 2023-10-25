@@ -30,7 +30,7 @@ public class PickEvil : MonoBehaviour
         }
 
         evils[random_number].SetActive(true);
-        Debug.Log(evils[random_number].name);
+        // Debug.Log(evils[random_number].name);
         evils[random_number] = null;
     }
 
