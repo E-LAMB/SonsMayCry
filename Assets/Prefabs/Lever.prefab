@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8938118635787019040}
   m_Layer: 0
   m_Name: Lever
-  m_TagString: Untagged
+  m_TagString: Lever
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   my_int: {fileID: 8938118635812635458}
+  player: {fileID: 0}
 --- !u!1 &8938118635838210678
 GameObject:
   m_ObjectHideFlags: 0

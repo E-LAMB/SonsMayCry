@@ -10492,9 +10492,9 @@ MonoBehaviour:
     being fully powered. Escaping <color=#FFF773>The Labyrinth</color> awards you
     a bonus of 500 extra <color=#8BFFE8>Shards</color>."
   - "<color=#FFD1B3>\u201DYou are too familiar with the feeling of cold shivers running
-    down your spine, If you were only able to sense it coming - You could stop it.\u201D</color>\n\nAfter
-    activating a <color=#FFF773>Lever</color>, The location of <color=#FF3C3F>The
-    Evil</color> is revealed to you for 10 seconds by <color=#8BFFE8>Focus</color>."
+    down your spine, If you were only able to sense it coming - You could stop it.\u201D</color>\n\nDecreases
+    the radius at which you can hear <color=#FF3C3F>The Evil</color>. Escaping <color=#FFF773>The
+    Labyrinth</color> awards you a bonus of 450 extra <color=#8BFFE8>Shards</color>."
   - "<color=#FFD1B3>\u201DRun! Run or she will kill you too!\u201D</color>\r\n\nIncreases
     your <color=#8BFFE8>Maximum Stamina</color> by 10 points each time you activate
     a <color=#FFF773>Lever</color>. Upon activating the final <color=#FFF773>Lever</color>,

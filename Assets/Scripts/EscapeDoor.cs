@@ -14,6 +14,9 @@ public class EscapeDoor : MonoBehaviour
 
     public GameObject baddies;
 
+    public GameObject dark_door;
+    public GameObject esc_door;
+
     /*
     public int points_lever;
     public int points_soda;
@@ -27,6 +30,8 @@ public class EscapeDoor : MonoBehaviour
 
     public PlayerController player;
     public Interactor player_int;
+
+    public Interactible my_int;
 
     public void Escaped()
     {
@@ -124,11 +129,37 @@ public class EscapeDoor : MonoBehaviour
     {
         darks.SetActive(false);
         other.SetActive(true);
+
+        esc_door.SetActive(false);
+        dark_door.SetActive(true);
+    }
+
+    public void PlayedUsed()
+    {
+        if (Mind.ability_two == 5 && player.time_since_last_activation < 20f)
+        {
+            my_int.interaction_description = "(NOT YET...)"; 
+
+        } else
+        {
+            my_int.interaction_description = "(ESCAPE!)"; 
+            Escaped();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Mind.levers_flipped > 3)
+        {
+            if (Mind.ability_two == 5 && player.time_since_last_activation < 20f)
+            {
+                my_int.interaction_description = "(NOT YET...)"; 
+
+            } else
+            {
+                my_int.interaction_description = "(ESCAPE!)"; 
+            }
+        }
     }
 }

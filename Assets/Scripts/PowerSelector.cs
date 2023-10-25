@@ -197,7 +197,7 @@ public class PowerSelector : MonoBehaviour
             Mind.abilities_unlocked[7] = false;
             Mind.abilities_unlocked[8] = false;
 
-            Mind.total_shards = 2500;
+            Mind.total_shards = 0;
 
         }
 

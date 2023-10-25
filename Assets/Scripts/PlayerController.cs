@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         {
             Mind.focus_threat = true;
 
-        } else if (Mind.ability_one == 6 && time_since_first_lever > 0f && time_since_last_activation < 5f)
+        } else if (Mind.ability_one == 6 && Mind.levers_flipped > 0 && time_since_last_activation < 5f)
         {
             Mind.focus_threat = true;
 

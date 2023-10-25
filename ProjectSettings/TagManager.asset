@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ResponsibleSpawner
+  - Lever
   layers:
   - Default
   - TransparentFX
