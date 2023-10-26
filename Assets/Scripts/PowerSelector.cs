@@ -38,12 +38,12 @@ public class PowerSelector : MonoBehaviour
 
     public void SavePower(string power_name)
     {
-        File.Create(Application.persistentDataPath + "/powers/" + power_name + ".txt");
+        File.Create(Application.persistentDataPath + "/power-" + power_name + ".txt");
     } 
 
     public bool CheckPower(string power_name)
     {
-        return File.Exists(Application.persistentDataPath + "/powers/" + power_name + ".txt");
+        return File.Exists(Application.persistentDataPath + "/power-" + power_name + ".txt");
     }
 
     public void SelectText()
@@ -71,6 +71,20 @@ public class PowerSelector : MonoBehaviour
     public void OpenMenu()
     {
         bool new_state = true;
+
+        if (!File.Exists(Application.persistentDataPath + "/" + "Shards" + ".txt"))
+        {
+            File.Create(Application.persistentDataPath + "/" + "Shards" + ".txt");
+        }
+
+        string content = Mind.ReadFile((Application.persistentDataPath + "/" + "Shards" + ".txt"));
+        if (content == "")
+        {
+            Mind.total_shards = 0;
+        } else
+        {
+            Mind.total_shards = int.Parse(content);
+        }
 
         //Debug.Log("Log1");
 
@@ -176,6 +190,17 @@ public class PowerSelector : MonoBehaviour
                 Mind.total_shards -= 2500;
                 Mind.abilities_unlocked[to_place] = true;
 
+                Mind.WriteFile((Application.persistentDataPath + "/" + "Shards" + ".txt"), Mind.total_shards.ToString());
+
+                if (to_place == 1) {SavePower("EVIL");}
+                if (to_place == 2) {SavePower("WITH");}
+                if (to_place == 3) {SavePower("HAST");}
+                if (to_place == 4) {SavePower("RFTW");}
+                if (to_place == 5) {SavePower("PLAY");}
+                if (to_place == 6) {SavePower("SHIV");}
+                if (to_place == 7) {SavePower("ENDU");}
+                if (to_place == 8) {SavePower("ELEC");}
+
                 if (selected_slot == 1)
                 {
                     Mind.ability_one = to_place;
@@ -191,23 +216,38 @@ public class PowerSelector : MonoBehaviour
         SelectText();
     }
 
-
     // Start is called before the first frame update
     void Start() // USED TO BE START
     {
-
-        if (Mind.abilities_unlocked[0] == false)
+        string content = Mind.ReadFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt");
+        int current_escapes;
+        if (content == "")
         {
-            Mind.abilities_unlocked[0] = true;
+            current_escapes = 0;
+        } else
+        {
+            current_escapes = int.Parse(content);
+        }
 
-            Mind.abilities_unlocked[1] = false;
-            Mind.abilities_unlocked[2] = false;
-            Mind.abilities_unlocked[3] = false;
-            Mind.abilities_unlocked[4] = false;
-            Mind.abilities_unlocked[5] = false;
-            Mind.abilities_unlocked[6] = false;
-            Mind.abilities_unlocked[7] = false;
-            Mind.abilities_unlocked[8] = false;
+        if (Mind.escapes_to_add > 0) {current_escapes += Mind.escapes_to_add; Mind.escapes_to_add = 0;}
+
+        Mind.total_escapes = current_escapes;
+
+        Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
+        Debug.Log("Current Escapes - " + current_escapes.ToString());
+
+        if (Mind.abilities_unlocked[0] == false) // Have we loaded abilities before?
+        {
+            Mind.abilities_unlocked[0] = true; // This makes us know we loaded 'em
+
+            Mind.abilities_unlocked[1] = CheckPower("EVIL");
+            Mind.abilities_unlocked[2] = CheckPower("WITH");
+            Mind.abilities_unlocked[3] = CheckPower("HAST");
+            Mind.abilities_unlocked[4] = CheckPower("RFTW");
+            Mind.abilities_unlocked[5] = CheckPower("PLAY");
+            Mind.abilities_unlocked[6] = CheckPower("SHIV");
+            Mind.abilities_unlocked[7] = CheckPower("ENDU");
+            Mind.abilities_unlocked[8] = CheckPower("ELEC");
 
         }
 

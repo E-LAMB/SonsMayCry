@@ -34,6 +34,8 @@ public class EscapeDoor : MonoBehaviour
 
     public Interactible my_int;
 
+    public bool on_menu;
+
     public void Escaped()
     {
 
@@ -41,6 +43,19 @@ public class EscapeDoor : MonoBehaviour
         {
             File.Create(Application.persistentDataPath + "/" + "EscapedLabyrinth" + ".txt");
         }
+
+        if (!File.Exists(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt"))
+        {
+            File.Create(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt");
+        }
+
+        Mind.escapes_to_add += 1;
+
+        /*
+        Debug.Log("Escape Count: " + current_escapes.ToString());
+        */
+
+        // Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
 
         player.should_be_in_control = false;
         player_int.enabled = false;
@@ -127,7 +142,9 @@ public class EscapeDoor : MonoBehaviour
 
         total_shards.text = "Total Shards -   " + Mind.total_shards.ToString();
 
-        Cursor.lockState = CursorLockMode.Confined;
+        Mind.WriteFile((Application.persistentDataPath + "/" + "Shards" + ".txt"),Mind.total_shards.ToString());
+
+        on_menu = true;
 
     }
 
@@ -157,6 +174,12 @@ public class EscapeDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (on_menu)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
         if (Mind.levers_flipped > 3)
         {
             if (Mind.ability_two == 5 && player.time_since_last_activation < 20f)

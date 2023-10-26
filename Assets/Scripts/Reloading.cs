@@ -21,6 +21,15 @@ public class Reloading : MonoBehaviour
         {
             scene_to_go = 2;
         }
+
+        if (main_menu)
+        {
+            if (!File.Exists(Application.persistentDataPath + "/" + "Shards" + ".txt"))
+            {
+                File.Create(Application.persistentDataPath + "/" + "Shards" + ".txt");
+            }
+        }
+
     }
 
     // Update is called once per frame
