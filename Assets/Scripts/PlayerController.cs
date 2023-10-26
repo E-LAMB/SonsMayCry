@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject overhead;
 
+    public bool is_tutorial;
+
     public void LeverFlipped()
     {
         if (Mind.ability_two == 3)
@@ -102,13 +104,16 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         for (int i = 0; i < mazes.Length; i++)
         {
             mazes[i].SetActive(false);
         }
 
-        gameObject.transform.position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, gameObject.transform.position.y, (Random.Range(1, 21) * 5f)-2.5f);
-        gameObject.transform.eulerAngles = new Vector3 (0f, Random.Range(0, 4) * 90f, 0f);
+        if (!is_tutorial) {
+            gameObject.transform.position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, gameObject.transform.position.y, (Random.Range(1, 21) * 5f)-2.5f);
+            gameObject.transform.eulerAngles = new Vector3 (0f, Random.Range(0, 4) * 90f, 0f);
+        }
 
         mazes[Random.Range(0, mazes.Length)].SetActive(true);
 
@@ -147,11 +152,6 @@ public class PlayerController : MonoBehaviour
             {
                 timer_text.text = timer_min_int.ToString() + ":0" + timer_sec_int.ToString();
             }
-        }
-
-        if (Mind.ability_one == 3 && stamina < 20f && Mind.time_in_level < 60f)
-        {
-            stamina = 20f;
         }
 
         shard_count.text = (Mind.shards_earnt_escape + 
@@ -208,6 +208,12 @@ public class PlayerController : MonoBehaviour
             } else
             {
                 bar_rend.color = color_active;
+            }
+
+            if (Mind.ability_one == 3 && stamina < 20f && Mind.time_in_level < 60f)
+            {
+                stamina = 20f;
+                bar_rend.color = Color.yellow;
             }
 
             should_show_bar = false;
@@ -285,6 +291,7 @@ public class PlayerController : MonoBehaviour
             if (is_crouching)
             {
                 speed -= crouch_speed_penalty;
+                if (is_sprinting) {speed -= crouch_speed_penalty;}
                 standing_body.SetActive(false);
                 cam_trans.position = Vector3.MoveTowards(cam_trans.position, trans_crouch.position, crouch_anim_speed * Time.deltaTime);
             } else

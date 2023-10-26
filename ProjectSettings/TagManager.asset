@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ResponsibleSpawner
   - Lever
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

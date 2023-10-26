@@ -41,4 +41,6 @@ public static class Mind
 
     public static int total_shards;
 
+    public static bool in_home_before;
+
 }

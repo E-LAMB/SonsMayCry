@@ -160,6 +160,9 @@ public class EscapeDoor : MonoBehaviour
             {
                 my_int.interaction_description = "(ESCAPE!)"; 
             }
+
+            dark_door.SetActive(false);
+            esc_door.SetActive(true);
         }
     }
 }

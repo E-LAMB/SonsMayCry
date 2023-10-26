@@ -19,6 +19,7 @@ public class Lever : MonoBehaviour
     public Interactible my_int;
 
     public PlayerController player;
+    public ExitDoorSetup exit_door;
 
     public void FlippedLever()
     {
@@ -40,6 +41,8 @@ public class Lever : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        exit_door = GameObject.FindGameObjectWithTag("ExitDoor").GetComponent<ExitDoorSetup>();
+        exit_door.SetupWires(gameObject);
     }
 
     // Update is called once per frame

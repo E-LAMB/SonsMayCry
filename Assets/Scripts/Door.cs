@@ -16,10 +16,15 @@ public class Door : MonoBehaviour
 
     public bool is_activated;
 
+    public bool fixed_amount;
+
     // Start is called before the first frame update
     void Start()
     {
-        levers_required = Random.Range(1,5);
+        if (!fixed_amount)
+        {
+            levers_required = Random.Range(1,5);
+        }
     }
 
     // Update is called once per frame

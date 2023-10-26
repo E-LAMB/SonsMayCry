@@ -180,8 +180,9 @@ public class PowerSelector : MonoBehaviour
         SelectText();
     }
 
+
     // Start is called before the first frame update
-    void Start()
+    void Start() // USED TO BE START
     {
 
         if (Mind.abilities_unlocked[0] == false)
@@ -201,12 +202,21 @@ public class PowerSelector : MonoBehaviour
 
         }
 
-        CloseMenu();
+        // CloseMenu();
+
+        HideOutlines();
+        SelectText();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
         selected_slot = 1;
         outline_PS1.SetActive(true);
         outline_PS2.SetActive(false);
         HideOutlines();
-    }
+
+        my_menu.SetActive(false);
+
+    } 
 
     // Update is called once per frame
     void Update()
