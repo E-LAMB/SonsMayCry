@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class EscapeDoor : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class EscapeDoor : MonoBehaviour
 
     public void Escaped()
     {
+
+        if (!File.Exists(Application.persistentDataPath + "/" + "EscapedLabyrinth" + ".txt"))
+        {
+            File.Create(Application.persistentDataPath + "/" + "EscapedLabyrinth" + ".txt");
+        }
+
         player.should_be_in_control = false;
         player_int.enabled = false;
 
@@ -42,7 +49,7 @@ public class EscapeDoor : MonoBehaviour
         darks.SetActive(true);
         other.SetActive(false);
 
-        Mind.shards_earnt_escape = 1500;
+        Mind.shards_earnt_escape = 2000;
         Mind.shards_earnt_escape -= (Mathf.RoundToInt(Mind.time_in_level / 10)) * 10;
         if (Mind.shards_earnt_escape < 500) {Mind.shards_earnt_escape = 500;}
 

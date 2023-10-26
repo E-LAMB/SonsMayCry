@@ -19,6 +19,8 @@ public class CutsceneMaingame : MonoBehaviour
 
     public PlayerController my_cam_controller;
 
+    public bool should_give_control;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class CutsceneMaingame : MonoBehaviour
             the_camera.position = camera_transform + self.position;
             the_camera.localRotation = camera_angle;
 
-            if (timer > 5f)
+            if (timer > 5f && should_give_control)
             {
                 should_play = false;
                 my_cam_controller.should_be_in_control = true;

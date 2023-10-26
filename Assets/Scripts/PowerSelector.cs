@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class PowerSelector : MonoBehaviour
 {
@@ -34,6 +35,16 @@ public class PowerSelector : MonoBehaviour
     public TextMeshProUGUI title_comp;
     public TextMeshProUGUI desc_comp;
     public TextMeshProUGUI shard_comp;
+
+    public void SavePower(string power_name)
+    {
+        File.Create(Application.persistentDataPath + "/powers/" + power_name + ".txt");
+    } 
+
+    public bool CheckPower(string power_name)
+    {
+        return File.Exists(Application.persistentDataPath + "/powers/" + power_name + ".txt");
+    }
 
     public void SelectText()
     {
@@ -197,8 +208,6 @@ public class PowerSelector : MonoBehaviour
             Mind.abilities_unlocked[6] = false;
             Mind.abilities_unlocked[7] = false;
             Mind.abilities_unlocked[8] = false;
-
-            Mind.total_shards = 0;
 
         }
 

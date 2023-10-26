@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
 
+        Mind.in_home_before = true;
+
         for (int i = 0; i < mazes.Length; i++)
         {
             mazes[i].SetActive(false);
