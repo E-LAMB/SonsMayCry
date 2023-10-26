@@ -10,6 +10,13 @@ public class PickEvil : MonoBehaviour
 
     bool playmate;
 
+    public Transform spawn_location;
+
+    public float location_a_dist;
+    public float location_b_dist;
+
+    public Transform player;
+
     void RollEvils()
     {
         int random_number = 0;
@@ -52,6 +59,16 @@ public class PickEvil : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        location_a_dist = Vector3.Distance(player.position, new Vector3(-45.5f, 0f, 97.5f));
+        location_b_dist = Vector3.Distance(player.position, new Vector3(47.5f, 0f, 2.5f));
+
+        if (location_a_dist < location_b_dist)
+        {
+            spawn_location.position = new Vector3(47.5f, 0f, 2.5f);
+        } else
+        {
+            spawn_location.position = new Vector3(-45.5f, 0f, 97.5f);
+        }
 
         if (Mind.ability_one == 5 && Mind.levers_flipped > 2 && !playmate)
         {

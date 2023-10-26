@@ -31,6 +31,8 @@ public class NewEnemyAI : MonoBehaviour
     public Transform boundary_a;
     public Transform boundary_b;
 
+    public Transform spawn_location;
+
     // public string special_ability;
     // There are no special abilities... Sorry
 
@@ -54,7 +56,7 @@ public class NewEnemyAI : MonoBehaviour
 
     public void EnterLabyrinth()
     {
-        self_transform.position = Vector3.zero;
+        self_transform.position = spawn_location.position;
 
         nav_agent.enabled = true;
 

@@ -168,29 +168,36 @@ public class PlayerController : MonoBehaviour
 
         time_since_last_activation += Time.deltaTime;
 
-        timer_sec += Time.deltaTime;
-        if (timer_sec > 1f)
+        if (should_be_in_control)
         {
-            timer_sec -= 1f;
-            timer_sec_int += 1;
-            if (timer_sec_int > 59)
+            timer_sec += Time.deltaTime;
+            if (timer_sec > 1f)
             {
-                timer_sec_int -= 60;
-                timer_min_int += 1;
-            }
-            if (timer_sec_int > 9)
-            {
-                timer_text.text = timer_min_int.ToString() + ":" + timer_sec_int.ToString();
-            } else
-            {
-                timer_text.text = timer_min_int.ToString() + ":0" + timer_sec_int.ToString();
+                timer_sec -= 1f;
+                timer_sec_int += 1;
+                if (timer_sec_int > 59)
+                {
+                    timer_sec_int -= 60;
+                    timer_min_int += 1;
+                }
+                if (timer_sec_int > 9)
+                {
+                    timer_text.text = timer_min_int.ToString() + ":" + timer_sec_int.ToString();
+                } else
+                {
+                    timer_text.text = timer_min_int.ToString() + ":0" + timer_sec_int.ToString();
+                }
             }
         }
 
-        if (wire_time > -1f)
+        if (should_be_in_control)
         {
-            wire_time -= Time.deltaTime;
+            if (wire_time > -1f)
+            {
+                wire_time -= Time.deltaTime;
+            }
         }
+
         Mind.focus_wire = (wire_time > 0f);
 
         shard_count.text = (Mind.shards_earnt_escape + 
@@ -229,7 +236,10 @@ public class PlayerController : MonoBehaviour
 
         // Mind.focus_threat = true;
 
-        Mind.time_in_level += Time.deltaTime;
+        if (should_be_in_control)
+        {
+            Mind.time_in_level += Time.deltaTime;
+        }
 
         bar_object.SetActive(should_show_bar);
         if (!should_be_in_control)

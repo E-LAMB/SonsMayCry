@@ -45,6 +45,14 @@ public class PowerSelector : MonoBehaviour
 
     public int purchasing;
 
+    public bool unlocked_second;
+
+    public Transform slot_one;
+    public Transform slot_alone_position;
+    public GameObject slot_two;
+
+    public GameObject show_alternate;
+
     public void SavePower(string power_name)
     {
         File.Create(Application.persistentDataPath + "/power-" + power_name + ".txt");
@@ -158,6 +166,12 @@ public class PowerSelector : MonoBehaviour
 
     public void ChangeSelectedSlot(int new_slot)
     {
+
+        if (!unlocked_second)
+        {
+            new_slot = 1;
+        }
+
         if (selected_slot != new_slot)
         {
             selected_slot = new_slot;
@@ -165,6 +179,7 @@ public class PowerSelector : MonoBehaviour
             outline_PS2.SetActive(new_slot == 2);
             HideOutlines();
             SelectText();
+
         } else
         {
             if (selected_slot == 1)
@@ -289,6 +304,34 @@ public class PowerSelector : MonoBehaviour
 
         Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
         Debug.Log("Current Escapes - " + current_escapes.ToString());
+
+        if (File.Exists(Application.persistentDataPath + "/" + "UnlockedSecond" + ".txt"))
+        {
+            unlocked_second = true;
+
+        } else
+        {
+            unlocked_second = false;
+
+            if (Mind.total_escapes == 5)
+            {
+                unlocked_second = true;
+
+                File.Create(Application.persistentDataPath + "/" + "UnlockedSecond" + ".txt");
+            }
+
+        }
+
+        if (!unlocked_second)
+        {
+            slot_two.SetActive(false);
+            slot_one.position = slot_alone_position.position;
+        }
+
+        if (unlocked_second)
+        {
+            show_alternate.SetActive(true);
+        }
 
         if (Mind.abilities_unlocked[0] == false) // Have we loaded abilities before?
         {

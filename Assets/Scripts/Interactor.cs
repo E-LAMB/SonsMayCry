@@ -41,6 +41,7 @@ public class Interactor : MonoBehaviour
                     on_interact.Invoke();
                 }
                 cursor.sprite = interact;
+                my_text.text = "";
             } else
             {
                 my_text.text = "";
