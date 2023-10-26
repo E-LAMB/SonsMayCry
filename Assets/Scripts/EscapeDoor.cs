@@ -71,7 +71,7 @@ public class EscapeDoor : MonoBehaviour
         if (Mind.ability_two == 1) {Mind.shards_earnt_escape_bonus += 250;}
         if (Mind.ability_one == 5) {Mind.shards_earnt_escape_bonus += 650;}
         if (Mind.ability_two == 5) {Mind.shards_earnt_escape_bonus += 500;}
-        if (Mind.ability_two == 6) {Mind.shards_earnt_escape_bonus += 250;}
+        if (Mind.ability_two == 6) {Mind.shards_earnt_escape_bonus += 450;}
 
         int current_text = 0;
         height = 200f;

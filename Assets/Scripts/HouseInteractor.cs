@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.UI;
 
 public class HouseInteractor : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class HouseInteractor : MonoBehaviour
     public KeyCode interaction_key;
 
     public TextMeshProUGUI my_text;
+
+    public Image cursor;
+    public Sprite interact;
+    public Sprite normal;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +42,16 @@ public class HouseInteractor : MonoBehaviour
                 {
                     on_interact.Invoke();
                 }
+                cursor.sprite = interact;
             } else
             {
                 my_text.text = "";
+                cursor.sprite = normal;
             }
         } else
         {
             my_text.text = "";
+            cursor.sprite = normal;
         }
     }
 

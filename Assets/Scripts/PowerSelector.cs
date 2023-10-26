@@ -36,6 +36,15 @@ public class PowerSelector : MonoBehaviour
     public TextMeshProUGUI desc_comp;
     public TextMeshProUGUI shard_comp;
 
+    public TextMeshProUGUI purch_comp;
+
+    public GameObject purchase_button;
+    public AppearLocked[] lock_states;
+    [TextArea(10,40)]
+    public string[] escape_text;
+
+    public int purchasing;
+
     public void SavePower(string power_name)
     {
         File.Create(Application.persistentDataPath + "/power-" + power_name + ".txt");
@@ -173,6 +182,9 @@ public class PowerSelector : MonoBehaviour
 
     public void PlaceIntoSlot(int to_place)
     {
+
+        purchasing = 0;
+
         if (Mind.abilities_unlocked[to_place])
         {
             if (selected_slot == 1)
@@ -183,37 +195,81 @@ public class PowerSelector : MonoBehaviour
             {
                 Mind.ability_two = to_place;
             }
+
+            HideOutlines();
+            SelectText();
+
         } else
         {
-            if (Mind.total_shards > 2499)
+
+            if (lock_states[to_place].escapes_needed <= Mind.total_escapes)
             {
-                Mind.total_shards -= 2500;
-                Mind.abilities_unlocked[to_place] = true;
+                purchasing = to_place;
 
-                Mind.WriteFile((Application.persistentDataPath + "/" + "Shards" + ".txt"), Mind.total_shards.ToString());
-
-                if (to_place == 1) {SavePower("EVIL");}
-                if (to_place == 2) {SavePower("WITH");}
-                if (to_place == 3) {SavePower("HAST");}
-                if (to_place == 4) {SavePower("RFTW");}
-                if (to_place == 5) {SavePower("PLAY");}
-                if (to_place == 6) {SavePower("SHIV");}
-                if (to_place == 7) {SavePower("ENDU");}
-                if (to_place == 8) {SavePower("ELEC");}
-
-                if (selected_slot == 1)
+                if (selected_slot == 1) 
                 {
-                    Mind.ability_one = to_place;
+                    title_comp.text = titles[purchasing];
+                    desc_comp.text = descriptions_a[purchasing];
                 }
-                if (selected_slot == 2)
+                if (selected_slot == 2) 
                 {
-                    Mind.ability_two = to_place;
+                    title_comp.text = titles[purchasing];
+                    desc_comp.text = descriptions_b[purchasing];
+                }
+
+                purch_comp.text = "Purchase - " + lock_states[purchasing].price_text;
+
+            } else
+            {
+                if (selected_slot == 1) 
+                {
+                    title_comp.text = escape_text[0];
+                    desc_comp.text = escape_text[1];
+                }
+                if (selected_slot == 2) 
+                {
+                    title_comp.text = escape_text[0];
+                    desc_comp.text = escape_text[1];
                 }
             }
+
         }
         
         HideOutlines();
-        SelectText();
+        // SelectText();
+    }
+
+    public void Purchase()
+    {
+        if (Mind.total_shards >= lock_states[purchasing].price && purchasing != 0)
+        {
+            Mind.total_shards -= lock_states[purchasing].price;
+            Mind.abilities_unlocked[purchasing] = true;
+
+            Mind.WriteFile((Application.persistentDataPath + "/" + "Shards" + ".txt"), Mind.total_shards.ToString());
+
+            if (purchasing == 1) {SavePower("EVIL");}
+            if (purchasing == 2) {SavePower("WITH");}
+            if (purchasing == 3) {SavePower("HAST");}
+            if (purchasing == 4) {SavePower("RFTW");}
+            if (purchasing == 5) {SavePower("PLAY");}
+            if (purchasing == 6) {SavePower("SHIV");}
+            if (purchasing == 7) {SavePower("ENDU");}
+            if (purchasing == 8) {SavePower("ELEC");}
+
+            if (selected_slot == 1)
+            {
+                Mind.ability_one = purchasing;
+            }
+            if (selected_slot == 2)
+            {
+                Mind.ability_two = purchasing;
+            }
+
+            HideOutlines();
+
+            purchasing = 0;
+        }
     }
 
     // Start is called before the first frame update
@@ -228,9 +284,7 @@ public class PowerSelector : MonoBehaviour
         {
             current_escapes = int.Parse(content);
         }
-
         if (Mind.escapes_to_add > 0) {current_escapes += Mind.escapes_to_add; Mind.escapes_to_add = 0;}
-
         Mind.total_escapes = current_escapes;
 
         Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
@@ -251,6 +305,8 @@ public class PowerSelector : MonoBehaviour
 
         }
 
+        purchase_button.SetActive(false);
+
         // CloseMenu();
 
         HideOutlines();
@@ -270,6 +326,9 @@ public class PowerSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        purchase_button.SetActive(purchasing != 0);
+
         if (Input.GetKey(KeyCode.P))
         {
             Mind.total_shards += 100;

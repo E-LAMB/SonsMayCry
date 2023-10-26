@@ -13,15 +13,46 @@ public class AppearLocked : MonoBehaviour
 
     public int my_value;
 
-    // Update is called once per frame
-    void Update()
+    public int escapes_needed;
+    public int price;
+    public string price_text;
+
+    void Start()
     {
-        if (Mind.abilities_unlocked[my_value])
+        if (escapes_needed <= Mind.total_escapes)
         {
             my_renderer.sprite = unlocked;
+            if (Mind.abilities_unlocked[my_value])
+            {
+                my_renderer.color = new Vector4 (1f, 1f, 1f, 1f);
+            } else
+            {
+                my_renderer.color = new Vector4 (0.5f, 0.5f, 0.5f, 1f);
+            }
         } else
         {
             my_renderer.sprite = locked;
+            my_renderer.color = new Vector4 (1f, 1f, 1f, 1f);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (escapes_needed <= Mind.total_escapes)
+        {
+            my_renderer.sprite = unlocked;
+            if (Mind.abilities_unlocked[my_value])
+            {
+                my_renderer.color = new Vector4 (1f, 1f, 1f, 1f);
+            } else
+            {
+                my_renderer.color = new Vector4 (0.5f, 0.5f, 0.5f, 1f);
+            }
+        } else
+        {
+            my_renderer.sprite = locked;
+            my_renderer.color = new Vector4 (1f, 1f, 1f, 1f);
         }
     }
 }

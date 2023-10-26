@@ -82,6 +82,8 @@ public class PlayerController : MonoBehaviour
 
     public bool is_tutorial;
 
+    public float wire_time;
+
     public void LeverFlipped()
     {
         if (Mind.ability_two == 3)
@@ -100,10 +102,31 @@ public class PlayerController : MonoBehaviour
         {
             overhead.SetActive(true);
         }
+        if (Mind.ability_two == 7)
+        {
+            max_stamina += 10;
+            stamina += 10;
+            if (Mind.levers_flipped > 3)
+            {
+                max_stamina += 5;
+                stamina += 5;
+            }
+        }
+
+        if (Mind.ability_two == 8 && wire_time > 10f)
+        {
+            wire_time = 10f;
+        }
+
     }
 
     private void Start()
     {
+
+        if (Mind.ability_one == 8)
+        {
+            wire_time = 45f;
+        }
 
         Mind.in_home_before = true;
 
@@ -130,6 +153,14 @@ public class PlayerController : MonoBehaviour
         if (Mind.lever_b_flipped) {Mind.levers_flipped += 1;}
         if (Mind.lever_c_flipped) {Mind.levers_flipped += 1;}
         if (Mind.lever_d_flipped) {Mind.levers_flipped += 1;}
+
+        if (Mind.ability_one == 7)
+        {
+            max_stamina += 30;
+        }
+
+        stamina = max_stamina;
+
     }
 
     private void Update()
@@ -155,6 +186,12 @@ public class PlayerController : MonoBehaviour
                 timer_text.text = timer_min_int.ToString() + ":0" + timer_sec_int.ToString();
             }
         }
+
+        if (wire_time > -1f)
+        {
+            wire_time -= Time.deltaTime;
+        }
+        Mind.focus_wire = (wire_time > 0f);
 
         shard_count.text = (Mind.shards_earnt_escape + 
         Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 

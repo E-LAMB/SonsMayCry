@@ -102,7 +102,13 @@ public class NewEnemyAI : MonoBehaviour
 
         if (has_entered_labyrinth)
         {
-            terror_radius.maxDistance = stat_terror + (increment_terror * Mind.levers_flipped);
+            if (Mind.ability_two == 6)
+            {
+                terror_radius.maxDistance = (stat_terror + (increment_terror * Mind.levers_flipped)) / 2f;
+            } else
+            {
+                terror_radius.maxDistance = stat_terror + (increment_terror * Mind.levers_flipped);
+            }
 
             player_direction = (self_transform.position - player_transform.position);
             player_direction = player_direction * -1f;
@@ -136,6 +142,11 @@ public class NewEnemyAI : MonoBehaviour
             if (knowing_time > 0f)
             {
                 Alerted(player_transform.position);
+            }
+
+            if (Mind.levers_flipped > 3)
+            {
+                knowing_time = 1f;
             }
 
             nav_agent.speed = stat_speed + (increment_speed * Mind.levers_flipped);

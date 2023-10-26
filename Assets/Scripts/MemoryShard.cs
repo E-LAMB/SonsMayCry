@@ -14,7 +14,7 @@ public class MemoryShard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FinalNewPlace();
     }
 
     public void CollectShard()
