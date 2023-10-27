@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3524341253607952128}
-  - component: {fileID: 3524341253607952129}
   m_Layer: 0
   m_Name: CollectiveEye
   m_TagString: Untagged
@@ -131,55 +130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3524341253607952129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3524341253607952130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c803dd88c57c13b49b45ca6c1c31fbb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  my_trans: {fileID: 3524341253607952128}
-  final_position: {x: 0, y: 0, z: 0}
-  currently_moving: 0
-  time_until_move: 0
-  current_charge: 0
-  in_place: 0
-  my_light: {fileID: 3524341253928790914}
-  size: 0
-  the_y:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 7
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 5
-      value: 200
-      inSlope: 81.93402
-      outSlope: 81.93402
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.05
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  anim_time: 0
-  detector: {fileID: 3524341254306848573}
-  player_layer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &3524341253928790915
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +425,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3524341254306848572}
+  - component: {fileID: 9198177505504173718}
+  - component: {fileID: 6776815186533022236}
   m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
@@ -496,6 +448,68 @@ Transform:
   m_Father: {fileID: 3524341253607952128}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9198177505504173718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524341254306848573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c803dd88c57c13b49b45ca6c1c31fbb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  my_trans: {fileID: 3524341253607952128}
+  final_position: {x: 0, y: 0, z: 0}
+  currently_moving: 0
+  time_until_move: 0
+  current_charge: 0
+  in_place: 0
+  my_light: {fileID: 3524341253928790914}
+  size: 0
+  the_y:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 5
+      value: 200
+      inSlope: 81.93402
+      outSlope: 81.93402
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  anim_time: 0
+  detector: {fileID: 3524341254306848573}
+  player_layer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!135 &6776815186533022236
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524341254306848573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3524341254775775127
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,3 +605,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus_type: eye
+  my_temp_material: {fileID: 0}
+  color_is: {x: 0, y: 0, z: 0, w: 0}
+  should_be_revealed: 0

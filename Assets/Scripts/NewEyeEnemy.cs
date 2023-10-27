@@ -40,18 +40,22 @@ public class NewEyeEnemy : MonoBehaviour
         in_place = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-
-        if (current_charge > 18f && Physics.CheckSphere(detector.transform.position, 1.5f, player_layer) && in_place)
+        if (current_charge > 18f && in_place)
         {
+            Debug.Log("WEE WOO");
             current_charge = 0f;
             in_place = false;
             FindNewPlace();
             time_until_move = 0f;
             Mind.eye_notification = 9f;
         }    
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         size = 1f - ((my_trans.position.y - 7f) / 50f);
         if (size > 1f) {size = 1f;}
