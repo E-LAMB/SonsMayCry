@@ -52,6 +52,16 @@ public class NewEnemyAI : MonoBehaviour
         nav_agent.enabled = false;
 
         terror_radius.enabled = false;
+
+        if (Mind.hell_mode) 
+        {
+            stat_awareness += 12f;
+            stat_speed += 1.5f;
+            stat_memory += 4f;
+            increment_awareness += 2f;
+            increment_speed += 1;
+            increment_memory += 1;
+        }
     }
 
     public void EnterLabyrinth()
@@ -130,7 +140,7 @@ public class NewEnemyAI : MonoBehaviour
                 RandomlyRoam();
             }
 
-            if ((stat_awareness + (increment_awareness * Mind.levers_flipped)) > player_distance)
+            if (((stat_awareness + (increment_awareness * Mind.levers_flipped)) + (Mind.total_escapes)) > player_distance)
             {
                 knowing_time = stat_memory + (increment_memory * Mind.levers_flipped);
             }

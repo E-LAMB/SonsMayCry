@@ -63,4 +63,9 @@ public static class Mind
 
     public static bool in_home_before;
 
+    public static bool hell_mode;
+
+    public static int notes_collected;
+    public static int notes_to_add;
+
 }

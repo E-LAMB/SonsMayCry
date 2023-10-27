@@ -10,6 +10,12 @@ public class SceneSwitcher : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
     }
 
+    public void HellDoor(int new_place)
+    {
+        Mind.hell_mode = true;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
+    }
+
     public void SwitchReset(int new_place)
     {
 

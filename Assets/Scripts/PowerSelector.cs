@@ -46,12 +46,16 @@ public class PowerSelector : MonoBehaviour
     public int purchasing;
 
     public bool unlocked_second;
+    public bool unlocked_hell;
 
     public Transform slot_one;
     public Transform slot_alone_position;
     public GameObject slot_two;
 
     public GameObject show_alternate;
+    public GameObject show_hell;
+
+    public GameObject hell_door;
 
     public void SavePower(string power_name)
     {
@@ -290,7 +294,25 @@ public class PowerSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start() // USED TO BE START
     {
-        string content = Mind.ReadFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt");
+
+        Mind.hell_mode = false;
+
+        string content = Mind.ReadFile(Application.persistentDataPath + "/" + "Notes" + ".txt");
+        int cur_notes;
+        if (content == "")
+        {
+            cur_notes = 0;
+        } else
+        {
+            cur_notes = int.Parse(content);
+        }
+        if (Mind.notes_to_add > 0) {cur_notes += Mind.notes_to_add; Mind.notes_to_add = 0;}
+        Mind.notes_collected = cur_notes;
+
+        Mind.WriteFile(Application.persistentDataPath + "/" + "Notes" + ".txt", cur_notes.ToString());
+        Debug.Log("Current Notes - " + cur_notes.ToString());
+
+        content = Mind.ReadFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt");
         int current_escapes;
         if (content == "")
         {
@@ -304,6 +326,8 @@ public class PowerSelector : MonoBehaviour
 
         Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
         Debug.Log("Current Escapes - " + current_escapes.ToString());
+
+        // Mind.enabled_totem = Mind.ReadFile(Application.persistentDataPath + "/" + "EnabledTotem" + ".txt");
 
         if (File.Exists(Application.persistentDataPath + "/" + "UnlockedSecond" + ".txt"))
         {
@@ -322,6 +346,23 @@ public class PowerSelector : MonoBehaviour
 
         }
 
+        if (File.Exists(Application.persistentDataPath + "/" + "UnlockedHell" + ".txt"))
+        {
+            unlocked_hell = true;
+
+        } else
+        {
+            unlocked_hell = false;
+
+            if (Mind.total_escapes == 10)
+            {
+                unlocked_hell = true;
+
+                File.Create(Application.persistentDataPath + "/" + "UnlockedHell" + ".txt");
+            }
+
+        }
+
         if (!unlocked_second)
         {
             slot_two.SetActive(false);
@@ -331,6 +372,16 @@ public class PowerSelector : MonoBehaviour
         if (unlocked_second)
         {
             show_alternate.SetActive(true);
+        }
+
+        if (!unlocked_hell)
+        {
+            show_hell.SetActive(false);
+            hell_door.SetActive(false);
+        } else 
+        {
+            show_hell.SetActive(true);
+            hell_door.SetActive(true);
         }
 
         if (Mind.abilities_unlocked[0] == false) // Have we loaded abilities before?

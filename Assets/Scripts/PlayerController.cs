@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
     public float time_since_last_activation;
 
     public GameObject overhead;
+    public Light sun;
+    public Camera self_cam;
 
     public bool is_tutorial;
 
@@ -113,7 +115,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Mind.ability_two == 8 && wire_time > 10f)
+        if (Mind.ability_two == 8 && wire_time < 10f)
         {
             wire_time = 10f;
         }
@@ -122,6 +124,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
+        if (Mind.hell_mode)
+        {
+            sun.color = Color.red;
+            self_cam.backgroundColor = Color.red;
+            RenderSettings.fogColor = Color.red;
+        }
 
         if (Mind.ability_one == 8)
         {

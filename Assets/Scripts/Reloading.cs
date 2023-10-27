@@ -28,6 +28,10 @@ public class Reloading : MonoBehaviour
             {
                 File.Create(Application.persistentDataPath + "/" + "Shards" + ".txt");
             }
+            if (!File.Exists(Application.persistentDataPath + "/" + "Notes" + ".txt"))
+            {
+                File.Create(Application.persistentDataPath + "/" + "Notes" + ".txt");
+            }
         }
 
     }

@@ -68,11 +68,18 @@ public class VentUnlocking : MonoBehaviour
             is_up = false;
         }
 
-        my_col.enabled = (curve_time < 0.9f);
+        my_col.enabled = (curve_time < 0.95f);
 
         if (is_up)
         {
-            if (curve_time < 1f) {curve_time += Time.deltaTime;}
+            if (Mind.hell_mode)
+            {
+                if (curve_time < 1f) {curve_time += Time.deltaTime * 0.4f;}
+
+            } else
+            {
+                if (curve_time < 1f) {curve_time += Time.deltaTime * 1f;}
+            }
 
         } else
         {

@@ -65,6 +65,7 @@ public class EscapeDoor : MonoBehaviour
         other.SetActive(false);
 
         Mind.shards_earnt_escape = 2000;
+        if (Mind.hell_mode) {Mind.shards_earnt_escape += 1000;}
         Mind.shards_earnt_escape -= (Mathf.RoundToInt(Mind.time_in_level / 10)) * 10;
         if (Mind.shards_earnt_escape < 500) {Mind.shards_earnt_escape = 500;}
 
@@ -105,6 +106,7 @@ public class EscapeDoor : MonoBehaviour
 
         if (Mind.shards_earnt_memory > 0)
         {
+            Mind.notes_to_add += 1;
             // my_texts[current_text].transform.position = new Vector3 (960, height + 440, 0);
             my_texts[current_text].SetActive(true);
             my_texts[current_text].GetComponent<TextMeshProUGUI>().text = "Memories Restored -       " + Mind.shards_earnt_memory.ToString() + " Shards";
@@ -130,15 +132,29 @@ public class EscapeDoor : MonoBehaviour
             current_text += 1;
         }
 
-        collected_shards.text = "Shards Collected -   " + (Mind.shards_earnt_escape + 
-        Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
-        Mind.shards_earnt_memory + Mind.shards_earnt_soda
-        + Mind.shards_earnt_unlocking).ToString();
+        if (Mind.hell_mode)
+        {
+            collected_shards.text = "Shards Collected -   " + ((Mind.shards_earnt_escape + 
+            Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
+            Mind.shards_earnt_memory + Mind.shards_earnt_soda
+            + Mind.shards_earnt_unlocking) * 2).ToString();
 
-        Mind.total_shards += (Mind.shards_earnt_escape + 
-        Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
-        Mind.shards_earnt_memory + Mind.shards_earnt_soda
-        + Mind.shards_earnt_unlocking);
+            Mind.total_shards += ((Mind.shards_earnt_escape + 
+            Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
+            Mind.shards_earnt_memory + Mind.shards_earnt_soda
+            + Mind.shards_earnt_unlocking) * 2);
+        } else
+        {
+            collected_shards.text = "Shards Collected -   " + (Mind.shards_earnt_escape + 
+            Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
+            Mind.shards_earnt_memory + Mind.shards_earnt_soda
+            + Mind.shards_earnt_unlocking).ToString();
+
+            Mind.total_shards += (Mind.shards_earnt_escape + 
+            Mind.shards_earnt_escape_bonus + Mind.shards_earnt_lever + 
+            Mind.shards_earnt_memory + Mind.shards_earnt_soda
+            + Mind.shards_earnt_unlocking);
+        }
 
         total_shards.text = "Total Shards -   " + Mind.total_shards.ToString();
 

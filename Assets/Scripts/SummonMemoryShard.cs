@@ -25,16 +25,16 @@ public class SummonMemoryShard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (is_ability_a && Mind.levers_flipped > 0)
+        if (!is_ability_a && Mind.levers_flipped > 0)
         {
             to_summon.SetActive(true);
             gameObject.GetComponent<SummonMemoryShard>().enabled = false;
         }
 
-        if (!is_ability_a && Mind.levers_flipped > 3 && reveal_time == 0f)
+        if (is_ability_a && Mind.levers_flipped > 3 && reveal_time == 0f)
         {
             to_summon.SetActive(true);
-            reveal_time = 25f;
+            reveal_time = 30f;
             Mind.focus_memory = true;
         }
 
