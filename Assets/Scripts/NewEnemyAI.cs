@@ -96,7 +96,7 @@ public class NewEnemyAI : MonoBehaviour
 
     public void Alerted(Vector3 alert_origin)
     {
-        if (notification_cooldown > 0f)
+        if (notification_cooldown < 0f)
         {
             target_location = alert_origin;
             nav_agent.SetDestination(alert_origin);
