@@ -107,6 +107,10 @@ public class EscapeDoor : MonoBehaviour
         if (Mind.shards_earnt_memory > 0)
         {
             Mind.notes_to_add += 1;
+            if (Mind.shards_earnt_memory > 1100)
+            {
+                Mind.notes_to_add += 1;
+            }
             // my_texts[current_text].transform.position = new Vector3 (960, height + 440, 0);
             my_texts[current_text].SetActive(true);
             my_texts[current_text].GetComponent<TextMeshProUGUI>().text = "Memories Restored -       " + Mind.shards_earnt_memory.ToString() + " Shards";

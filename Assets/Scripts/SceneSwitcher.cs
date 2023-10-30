@@ -10,9 +10,16 @@ public class SceneSwitcher : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
     }
 
-    public void HellDoor(int new_place)
+    public void RandomMaze()
+    {
+        int new_place = Random.Range(2,4);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
+    }
+
+    public void HellDoor()
     {
         Mind.hell_mode = true;
+        int new_place = Random.Range(2,4);
         UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
     }
 

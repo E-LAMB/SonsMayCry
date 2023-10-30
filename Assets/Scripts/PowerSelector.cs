@@ -134,6 +134,9 @@ public class PowerSelector : MonoBehaviour
 
         //Debug.Log("Log2");
 
+        Mind.WriteFile((Application.persistentDataPath + "/" + "Perk1" + ".txt"), Mind.ability_one.ToString());
+        Mind.WriteFile((Application.persistentDataPath + "/" + "Perk2" + ".txt"), Mind.ability_two.ToString());
+
         my_menu.SetActive(new_state);
         player.should_be_in_control = !new_state;
         player_int.enabled = !new_state;
@@ -324,6 +327,29 @@ public class PowerSelector : MonoBehaviour
         if (Mind.escapes_to_add > 0) {current_escapes += Mind.escapes_to_add; Mind.escapes_to_add = 0;}
         Mind.total_escapes = current_escapes;
 
+        if (File.Exists(Application.persistentDataPath + "/" + "Perk1" + ".txt"))
+        {
+            if (Mind.ReadFile(Application.persistentDataPath + "/" + "Perk1" + ".txt") != "")
+            {
+                Mind.ability_one = int.Parse(Mind.ReadFile(Application.persistentDataPath + "/" + "Perk1" + ".txt"));
+            } else
+            {
+                Mind.ability_one = 0;
+                Mind.WriteFile((Application.persistentDataPath + "/" + "Perk1" + ".txt"), "0");
+            }
+        }
+        if (File.Exists(Application.persistentDataPath + "/" + "Perk2" + ".txt"))
+        {
+            if (Mind.ReadFile(Application.persistentDataPath + "/" + "Perk2" + ".txt") != "")
+            {
+                Mind.ability_two = int.Parse(Mind.ReadFile(Application.persistentDataPath + "/" + "Perk2" + ".txt"));
+            } else
+            {
+                Mind.ability_two = 0;
+                Mind.WriteFile((Application.persistentDataPath + "/" + "Perk2" + ".txt"), "0");
+            }
+        }
+
         Mind.WriteFile(Application.persistentDataPath + "/" + "PlayerEscapes" + ".txt", current_escapes.ToString());
         Debug.Log("Current Escapes - " + current_escapes.ToString());
 
@@ -425,7 +451,7 @@ public class PowerSelector : MonoBehaviour
 
         if (Input.GetKey(KeyCode.P))
         {
-            Mind.total_shards += 100;
+            // Mind.total_shards += 100;
         }
 
         shard_comp.text = "Total Shards: " + Mind.total_shards.ToString();

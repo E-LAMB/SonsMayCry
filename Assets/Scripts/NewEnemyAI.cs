@@ -33,6 +33,8 @@ public class NewEnemyAI : MonoBehaviour
 
     public Transform spawn_location;
 
+    public float notification_cooldown;
+
     // public string special_ability;
     // There are no special abilities... Sorry
 
@@ -94,13 +96,19 @@ public class NewEnemyAI : MonoBehaviour
 
     public void Alerted(Vector3 alert_origin)
     {
-        target_location = alert_origin;
-        nav_agent.SetDestination(alert_origin);
+        if (notification_cooldown > 0f)
+        {
+            target_location = alert_origin;
+            nav_agent.SetDestination(alert_origin);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (notification_cooldown > -1f) {notification_cooldown -= Time.deltaTime;}
+
         if (!has_entered_labyrinth && Mind.time_in_level > 15f && Mind.ability_two == 1)
         {
             EnterLabyrinth();

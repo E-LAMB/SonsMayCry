@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
 
     public float time_active;
 
-    public GameObject[] mazes;
-
     public float time_since_first_lever;
     public float time_since_last_lever;
     public float time_since_enemy_spawn;
@@ -139,17 +137,19 @@ public class PlayerController : MonoBehaviour
 
         Mind.in_home_before = true;
 
+        /*
         for (int i = 0; i < mazes.Length; i++)
         {
             mazes[i].SetActive(false);
         }
+        */
 
         if (!is_tutorial) {
             gameObject.transform.position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, gameObject.transform.position.y, (Random.Range(1, 21) * 5f)-2.5f);
             gameObject.transform.eulerAngles = new Vector3 (0f, Random.Range(0, 4) * 90f, 0f);
         }
 
-        mazes[Random.Range(0, mazes.Length)].SetActive(true);
+        // mazes[Random.Range(0, mazes.Length)].SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();

@@ -32,6 +32,14 @@ public class Reloading : MonoBehaviour
             {
                 File.Create(Application.persistentDataPath + "/" + "Notes" + ".txt");
             }
+            if (!File.Exists(Application.persistentDataPath + "/" + "Perk1" + ".txt"))
+            {
+                File.Create(Application.persistentDataPath + "/" + "Perk1" + ".txt");
+            }
+            if (!File.Exists(Application.persistentDataPath + "/" + "Perk2" + ".txt"))
+            {
+                File.Create(Application.persistentDataPath + "/" + "Perk2" + ".txt");
+            }
         }
 
     }

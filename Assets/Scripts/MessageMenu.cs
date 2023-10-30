@@ -10,11 +10,12 @@ public class MessageMenu : MonoBehaviour
     public GameObject[] buttons;
 
     public TextMeshProUGUI title_comp;
-    public TextMeshProUGUI desc_comp;
 
     public string[] titles;
     [TextArea(10,40)]
     public string[] descriptions;
+
+    public GameObject[] messages;
 
     public int currently_chosen;
 
@@ -33,16 +34,22 @@ public class MessageMenu : MonoBehaviour
 
     public void OpenPage(int number)
     {
+        for (int i = 0; i < messages.Length; i++)
+        {
+            messages[i].SetActive(false);
+        }
+
         if (currently_chosen == number)
         {
             currently_chosen = 0;
+
         } else
         {
             currently_chosen = number;
         }
 
         title_comp.text = titles[number];
-        desc_comp.text = descriptions[number];
+        messages[number].SetActive(true);
     }
 
     public void OpenMemories()
@@ -60,7 +67,8 @@ public class MessageMenu : MonoBehaviour
         interact_text.SetActive(!new_state);
 
         title_comp.text = titles[0];
-        desc_comp.text = descriptions[0];
+        OpenPage(0);
+        // desc_comp.text = descriptions[0];
 
         if (new_state)
         {
