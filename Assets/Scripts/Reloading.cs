@@ -30,7 +30,7 @@ public class Reloading : MonoBehaviour
 
         } else
         {
-            scene_to_go = 2;
+            scene_to_go = 3;
         }
 
         if (main_menu)
@@ -53,7 +53,7 @@ public class Reloading : MonoBehaviour
             }
         }
 
-        Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -64,7 +64,7 @@ public class Reloading : MonoBehaviour
         countdown -= Time.deltaTime;
         if (countdown < -2.5f)
         {
-            Cursor.visible = true; 
+            Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene_to_go);
         }
 

@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdown: 6
   main_menu: 1
-  scene_to_go: 1
+  scene_to_go: 2
   first: 0
   second: 0
   my_image_F: {fileID: 1956419119}

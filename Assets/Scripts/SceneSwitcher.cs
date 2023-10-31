@@ -12,14 +12,14 @@ public class SceneSwitcher : MonoBehaviour
 
     public void RandomMaze()
     {
-        int new_place = Random.Range(2,4);
+        int new_place = Random.Range(3,5);
         UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
     }
 
     public void HellDoor()
     {
         Mind.hell_mode = true;
-        int new_place = Random.Range(2,4);
+        int new_place = Random.Range(3,5);
         UnityEngine.SceneManagement.SceneManager.LoadScene(new_place);
     }
 

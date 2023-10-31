@@ -26,9 +26,7 @@ public class NewEyeEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currently_moving = 2;
-        my_trans.position = new Vector3((Random.Range(-9, 11) * 5f)-2.5f, 200f, (Random.Range(1, 21) * 5f)-2.5f);
-        in_place = false;
+        FindNewPlace();
     }
 
     void FindNewPlace()

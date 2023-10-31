@@ -38,18 +38,18 @@ public class CatchPlayer : MonoBehaviour
 
         if (play_JS)
         {
-            js_sprite.localScale = new Vector3 (Random.Range(1f, 1.5f), Random.Range(1f, 1.5f), Random.Range(1f, 1.5f));
-            js_sprite.eulerAngles = new Vector3 (Random.Range(-6f, 6f), 0f, Random.Range(-6f, 6f));
-            player_cam.eulerAngles = new Vector3 (player_cam.eulerAngles.x + Random.Range(-1f, 1f),
-            player_cam.eulerAngles.y + Random.Range(-1f, 1f), player_cam.eulerAngles.z + Random.Range(-1f, 1f));
+            js_sprite.localScale = new Vector3 (Random.Range(1f, 2f), Random.Range(1f, 2f), Random.Range(1f, 1.5f));
+            js_sprite.eulerAngles = new Vector3 (Random.Range(-6f, 6f), 0f, Random.Range(-8f, 8f));
+            player_cam.eulerAngles = new Vector3 (player_cam.eulerAngles.x + Random.Range(-3f, 3f),
+            player_cam.eulerAngles.y + Random.Range(-3f, 3f), player_cam.eulerAngles.z + Random.Range(-3f, 3f));
         }
 
-        if (jumpscare_time > 5f)
+        if (jumpscare_time > 3f)
         {
             black_screen.SetActive(true);
         }
 
-        if (jumpscare_time > 6f)
+        if (jumpscare_time > 5f)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }

@@ -21,12 +21,15 @@ public class Lever : MonoBehaviour
     public PlayerController player;
     public ExitDoorSetup exit_door;
 
+    public AudioSource lever_flip;
+
     public void FlippedLever()
     {
         if (flipped == false)
         {
             Mind.shards_earnt_lever += (Mind.levers_flipped * 200) + 200;
             flipped = true;
+            lever_flip.Play();
             player.time_since_last_activation = 0f;
             my_int.interaction_description = "";
             if (corresponding_letter == "a") {Mind.lever_a_flipped = true;}
