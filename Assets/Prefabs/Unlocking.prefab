@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6410827447648659559}
   - component: {fileID: 2438495478892509643}
   - component: {fileID: 8860606531066976058}
+  - component: {fileID: 8560513832450079094}
   m_Layer: 6
   m_Name: Plate
   m_TagString: Untagged
@@ -124,6 +125,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interaction_description: (Open Blockade)
+--- !u!114 &8560513832450079094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793969629729647071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a7d9f3fa21ac149a68b7b4d19c9194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hell_alternate: {fileID: 2100000, guid: ff8d3ec54046a6d418f4e92d107201c5, type: 2}
 --- !u!1 &5225319684980126842
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time_stay_raised: 0
-  times_will_fall: 0
+  times_raised: 0
   my_interactible: {fileID: 8860606531066976058}
   my_col: {fileID: 2438495478892509643}
   is_up: 0

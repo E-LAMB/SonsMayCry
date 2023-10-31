@@ -14,5 +14,10 @@ public class FadeIn : MonoBehaviour
     {
         my_color.a -= Time.deltaTime * 0.3f;
         raw.color = my_color;
+        if (my_color.a < 0f) {my_color.a = 0f;}
+        if (my_color.a == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

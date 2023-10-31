@@ -53,18 +53,22 @@ public class Reloading : MonoBehaviour
             }
         }
 
+        Cursor.visible = false; 
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         countdown -= Time.deltaTime;
-        if (countdown < -1.2f)
+        if (countdown < -2.5f)
         {
+            Cursor.visible = true; 
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene_to_go);
         }
 
-        fade = countdown * -1f;
+        fade = (countdown + 1.5f) * -1f;
         if (0f > fade) { fade = 0f; }
         if (1f < fade) { fade = 1f; }
 

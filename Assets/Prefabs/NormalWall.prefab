@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077818633099113800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5051de70428af944ba5ca3744aa0d8e, type: 3}
   m_Name: 
@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 7951461370211245029}
   - component: {fileID: 6574252713255850541}
   - component: {fileID: 6999068647921840552}
+  - component: {fileID: 6275687464645468274}
   m_Layer: 7
   m_Name: Nav Mesh Obstacle
   m_TagString: Untagged
@@ -158,3 +159,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &6275687464645468274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438155774198009399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a7d9f3fa21ac149a68b7b4d19c9194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hell_alternate: {fileID: 2100000, guid: fc31343792512d145b507a89fe307be4, type: 2}
