@@ -14,6 +14,9 @@ public class Door : MonoBehaviour
     public Transform left_go;
     public Transform right_go;
 
+    public Transform left_anch;
+    public Transform right_anch;
+
     public bool is_activated;
 
     public bool fixed_amount;
@@ -25,6 +28,8 @@ public class Door : MonoBehaviour
         {
             levers_required = Random.Range(1,5);
         }
+        left_door.position = left_anch.position;
+        right_door.position = right_anch.position;
     }
 
     // Update is called once per frame

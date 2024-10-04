@@ -22,6 +22,7 @@ public class Lever : MonoBehaviour
     public ExitDoorSetup exit_door;
 
     public AudioSource lever_flip;
+    public AudioSource lever_idle;
 
     public void FlippedLever()
     {
@@ -37,6 +38,7 @@ public class Lever : MonoBehaviour
             if (corresponding_letter == "c") {Mind.lever_c_flipped = true;}
             if (corresponding_letter == "d") {Mind.lever_d_flipped = true;}
             Mind.lever_notification = true;
+            lever_idle.Stop();
             player.LeverFlipped();
         }
     }
