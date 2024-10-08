@@ -25,6 +25,8 @@ public class NewEnemyAI : MonoBehaviour
 
     public AudioSource terror_radius;
 
+    public float recalculate_timer;
+
     public float target_distance;
     public Vector3 target_location;
 
@@ -34,6 +36,8 @@ public class NewEnemyAI : MonoBehaviour
     public Transform spawn_location;
 
     public float notification_cooldown;
+
+    public Animator baby_anim; // If it's the baby, It'll have this anim!!
 
     // public string special_ability;
     // There are no special abilities... Sorry
@@ -122,6 +126,8 @@ public class NewEnemyAI : MonoBehaviour
 
         if (has_entered_labyrinth)
         {
+            recalculate_timer += Time.deltaTime;
+
             if (Mind.ability_two == 6)
             {
                 terror_radius.maxDistance = (stat_terror + (increment_terror * Mind.levers_flipped)) / 2f;
@@ -161,7 +167,11 @@ public class NewEnemyAI : MonoBehaviour
 
             if (knowing_time > 0f)
             {
-                Alerted(player_transform.position);
+                if (notification_cooldown < -0.5f)
+                {
+                    Alerted(player_transform.position);
+                    notification_cooldown = 5f;
+                }
             }
 
             if (Mind.levers_flipped > 3)
@@ -170,7 +180,27 @@ public class NewEnemyAI : MonoBehaviour
             }
 
             nav_agent.speed = stat_speed + (increment_speed * Mind.levers_flipped);
+            //nav_agent.SetDestination(target_location);
 
+            // This lovely code was adopted from https://discussions.unity.com/t/navmeshagent-getting-stuck-on-a-random-point/225612
+
+            /*
+            if (recalculate_timer > 15f && !nav_agent.hasPath && nav_agent.pathStatus == NavMeshPathStatus.PathComplete) 
+            {
+                Debug.Log("Character stuck");
+                nav_agent.enabled = false;
+                nav_agent.enabled = true;
+                Debug.Log("navmesh re enabled");
+                // navmesh agent will start moving again
+                recalculate_timer = -0f;
+            }
+            */
+
+        }
+
+        if (baby_anim != null)
+        {
+            baby_anim.SetBool("IsChasing", knowing_time > 0f);
         }
 		
     }

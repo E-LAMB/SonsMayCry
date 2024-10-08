@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4211416946308417196, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211416946308417196, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211416946308417196, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4211416946436384121, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -191,6 +203,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5722857547651645654, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6579858820002955081, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7142956887915319117, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
       propertyPath: m_NavMeshData
       value: 
@@ -201,7 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7142956887915319117, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
       propertyPath: m_LayerMask.m_Bits
-      value: 4022
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178152197833230413, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_Carve
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

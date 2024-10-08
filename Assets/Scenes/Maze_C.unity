@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3964375555059364362, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4211416947004605776, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
       propertyPath: m_Name
       value: WholeMaze
@@ -179,8 +183,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4211416947122373595, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: evils.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211416947122373595, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: evils.Array.data[3]
+      value: 
+      objectReference: {fileID: 1969555291}
+    - target: {fileID: 5890827185261021463, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142956887915319117, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: cc91618b58fa3a84b98fb2cc7a302810, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+--- !u!1 &1969555291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5890827185261021463, guid: 2db85a496b0f0f24b8c578beee504c85, type: 3}
+  m_PrefabInstance: {fileID: 1132003736}
+  m_PrefabAsset: {fileID: 0}

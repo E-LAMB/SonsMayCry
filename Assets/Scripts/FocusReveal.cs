@@ -25,6 +25,14 @@ public class FocusReveal : MonoBehaviour
 
     void Update()
     {
+        if (focus_type == "go_ahead")
+        {
+            should_be_revealed = true;
+        } else
+        {
+            should_be_revealed = false;
+        }
+
         if (focus_type == "wire")
         {
             should_be_revealed = Mind.focus_wire;
